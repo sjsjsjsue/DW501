@@ -1,0 +1,155 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 1300px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    width: 1300px;
+    height: 100px;
+    display: flex;
+}
+.logo{
+    width: 350px;
+    height: 100px;
+}
+.log_img{
+    width: 350px;
+    height: 95px;
+    text-align: center;
+    margin: 5px auto;
+}
+.log_img img{
+    width: 250px;
+    height: 95px;
+}
+.header_img{
+    width: 950px;
+    height: 100px;
+}
+.header_img img{
+    width: 950px;
+    height: 100px;
+}
+.center{
+    width: 1300px;
+    height: 700px;
+    display: flex;  
+}               
+.left{
+    width: 350px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(91, 0, 0);
+}
+.new{
+    border: 1px solid #999;
+    border-radius: 10px;
+    color: black;
+    width: 330px;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: white;
+}
+.new_idpass{
+    width: 330px;
+    height: auto;
+}
+.idpass{
+    display: flex;
+    margin: 10px;
+}
+.text{
+    width: 100px;
+    font-size: 15pt;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 10px;
+}
+.idpass input{
+    width: 190px;
+    height: 28px;
+    font-size: 13pt;
+    border: 1px solid #999;
+    border-radius: 10px;  
+    padding-left: 10px;
+}
+.text{
+    font-size: 20px;
+    font-weight: 800;  
+}
+.button button{
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(59, 59, 202);
+    font-weight: 700;
+    font-size: 20px;
+}
+.button button:hover{
+    cursor: pointer;
+    
+}
+.new_find{
+    display: flex;
+    justify-content:space-between;
+    margin: 5px;
+}
+.new_a a{
+    color: black;
+    text-decoration: none;
+}
+
+.menu{
+    width: 332px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.li_menu{
+    width: 332px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.li_menu a{
+    color: white;
+    text-decoration: none;
+}
+.li_div{
+    font-size: 30px;
+    font-weight: 800;
+    margin: 10px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+.li_div:hover{
+    cursor: pointer;
+}
+.right{
+    background-color:rgb(91, 0, 0);
+    width: 950px;
+    height: 700px;
+}
+.right_img{
+    width: 700px;
+    height: 270px;
+    margin: 70px auto;
+}
+.right_img img{
+    width: 700px;
+    height: 270px;
+}

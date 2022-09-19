@@ -1,0 +1,80 @@
+#mbti_mask{
+    width:100%;
+    height: auto;
+}
+#mbti_wrap{
+    width: 1500px;
+    height: auto;
+    margin: 0 auto;
+}
+#h1{
+    font-size: 30pt;
+    font-weight: 800;
+    text-align: center;
+}
+.howto{
+    font-size:20pt;
+}
+ol li{
+    font-weight: 900;
+}
+.mli{
+    display: flex;
+    width: 1200px;
+    height: auto;
+    line-height: 45px;
+    border: 1px solid black;
+    text-align: center;
+    border-left: none; 
+    border-right: none;
+}
+.mbti_center{
+    width: 1200px;
+    height: 600px;
+}
+.div{  
+    margin-bottom: 20px;
+}
+.mbti_list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 1200px;
+    height: 50px;
+    font-weight: 800;
+    font-size: 20pt
+}
+.num{ 
+    width: 10%;
+    border-right: 1px solid black;   
+}
+.type{ 
+    width: 35%;
+    border-right: 1px solid black;
+}
+.mark{
+    width: 10%;
+    border-right: 1px solid black;
+}
+
+.mark1{
+    width: 10%;
+    border-left: 1px solid black;
+}
+
+.sum{
+    width: 40%;
+    text-align: left;
+    padding-left: 30px;
+}
+.MyEnergy{
+    width: 30%;
+    padding-left: 20px;
+    font-weight: 800;
+    font-size: 20pt;
+}
+input[type=text]{
+    width: 50px;
+    height: 20px;
+    border: 2px solid black;
+}
