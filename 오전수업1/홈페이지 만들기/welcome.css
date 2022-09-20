@@ -1,0 +1,112 @@
+/* welcome */
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 1300px;
+    height: 800px;
+    margin: 0 auto;  
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    width: 1300px;
+    height: 120px;
+    color: white;
+    display: flex;
+    justify-content: start;
+}
+.logo{
+    width: 360px;
+    height: 120px;
+}
+.logo_img{
+    width: 360px;
+    height: 120px;
+    text-align: center;
+    margin: 10px auto;
+}
+.log_img img{
+    width: 360px;
+    height: 120px;
+}
+.img2{
+    width: 940px;
+    height: 120px;
+}
+.img2 img{
+    width: 940px;
+    height: 120px;
+}
+.center{
+    width: 1300px;
+    height: 680px;
+    display: flex;
+    justify-content: start;
+}
+.section{
+    width: 360px;
+    height: 680px;
+
+}
+.nav{
+    width: 940px;
+    height: 680px;
+
+}
+.inptu_bt{
+    width: 940px;
+    height: 680px;
+}
+.input_{
+    width: 940px;
+    height: auto;
+    margin: 20px auto;
+}
+.inputbox{
+    width: 940px;
+    height: auto;
+    margin: 20px auto;
+}
+.input{
+    width: 660px;
+    height: 35px;
+    display: flex;
+    margin: 10px;
+}
+.inputext{
+    width: 150px;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: right;
+    padding: 10px;
+}
+.input_box input{
+    width: 290px;
+    height: 28px;
+    font-size: 13px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+.button{
+    width: 680px;
+    height: 50px;
+    position: relative;
+}
+.button a{
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+    text-decoration: none;
+    background-color: #999;
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 170px;
+}
