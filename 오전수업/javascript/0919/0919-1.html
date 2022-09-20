@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #info input{
+            width: 100px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="info">
+        <input type="text" id="name" placeholder="이름">
+        <input type="text" id="job" placeholder="직업">
+        <input type="text" id="age" placeholder="나이">
+        <input type="button" onclick="enroll()" value="등록">
+    </div>
+    <hr>
+    <div id="result"></div>
+
+</body>
+
+<script>
+// 문제 1. 직업이 군인 또는 변호사만 출력하기.
+// 문제 2. 직업이 공무원인 사람만 나이 대신 출생년도로 출력하기.
+function enroll(){
+    var name = document.getElementById("name").value;
+    var job = document.getElementById("job").value;
+    var age = document.getElementById("age").value;
+    var bor = 2022 - parseInt(age)+1;
+    var res = document.getElementById("result");
+// **** else 는 식이 안들어 감!
+    if( job == "군인" || job == "변호사"){
+         res.innerHTML = "<h2> 이름은 " +  name + ", 직업은 " + job + ", 나이는 " + age + "살 입니다. </h2>";
+    }
+    else if( job == "공무원"){
+        res.innerHTML = "<h2> 이름은 " +  name + ", 직업은 " + job + ", 출생년도는 " + bor + "년 입니다. </h2>";
+    }
+}
+
+
+
+
+</script>
+</html>

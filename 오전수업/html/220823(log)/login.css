@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    width: 210px;
+    margin:0 auto;
+}
+.input_box{
+    margin-bottom: 20px;
+}
+.input_box input{
+    width: 200px;
+    height: 50px;
+    border: 1px solid #03c75a;
+    font-size: 15pt;
+    border-radius: 10px;
+    padding-left: 10px;
+    display: flex;
+
+}
+.input_box input[type=button]{
+    border:0;
+    background-color: #03c75a;
+    color: white;
+    font-size: 20pt;
+    font-weight: 900;
+    width: 305px;
+}
+.join_bt{
+    text-align: right;
+}
+.join_bt a{
+    text-decoration: none;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 0919 html </title>
+
+    <style>
+        #input_wrap{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        #input_wrap input{
+            height: 40px;
+            font-size: 1.7rem;
+        }
+        /* #number2{order:3;}
+        #number1{order: 2;}
+        inputp[type="button"]{
+            order:1;
+        } */
+        /* 만약 내용을 변경하지 않고 출력 순서만 바꾸고 싶다면 order 속성을 사용합니다. */
+
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div id="input_wrap">
+        <input type="text" id="number1" placeholder="정수입력">
+        <input type="text" id="number2" placeholder="정수입력">
+        <input type="button" onclick="execute()" value="입력">
+    </div>
+    <hr>
+    <div id="result"></div>
+
+
+</body>
+
+<script>
+//   두 개의 숫자를 입력받아 두 숫자 중 큰 숫자를 출력하시오.
+
+function execute(){
+    var number1 = document.getElementById("number1").value; // 입력용이라 .value 를 써야함.
+    var number2 = document.getElementById("number2").value;
+    var result = document.getElementById("result"); // 출력용이라 .value를 쓸 필요가 없음
+
+    if( parseInt(number1)  > parseInt(number2)){
+        // alert("num1이 더 큽니다."); 내가 한 것
+        result.innerHTML = "<h2> 큰 수는 -> " + number1 + "</h2>"; 
+        
+    }else if( number1 == number2){
+        result.innerHTML = "<h2> 두 수는 같은 숫자 </h2>";
+    }
+    else{
+    //    alert("num2가 더 큽니다."); 내가 한 것
+        result.innerHTML = "<h2> 큰 수는 ->" + number2 + "</h2>";
+
+        // __.innerHTML = --- -> ---를 __ 에 출력을 하겠다.
+    }
+
+}
+
+
+</script>
+
+</html>

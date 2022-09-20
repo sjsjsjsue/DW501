@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id="box" class="input-box">
+            <input type="text" placeholder="이름입력">
+            <input type="text" placeholder="연락처입력">
+            <input type="text" placeholder="이메일입력">
+            <input type="text" placeholder="주소입력">
+            <input type="text" placeholder="기타사항입력">
+        </div>
+        <button onclick="doClick()">제출</button>
+    </div>
+</body>
+<script>
+    function doClick(){
+        var box = document.getElementById("box").children;
+        for(var i=0; i<box.length; i++){
+            var inputValue = box[i];
+            if(inputValue.value == ""){
+                alert("값을 입력해주세요");
+                inputValue.focus();
+                return false;
+            }
+        }
+    }
+      
+</script>
+</html>

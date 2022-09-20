@@ -1,0 +1,43 @@
+/* convas.css */
+
+#gallery{
+    border: 10px solid #111111;
+    height: 300px; 
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+    background-color: #272229;
+}
+.small{
+    width: 120px;
+    height: 90px;
+    box-shadow: #272229 10px 10px 20px;
+}
+#gallery ul{
+    list-style: none;
+    margin-left: 30px;
+    padding: 0;
+}
+#gallery ul li{
+    display: inline-table;
+    padding: 5px;
+}
+.pic{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute; 
+    /* absolute 위에 relavtive 가 없다면 position을 감싸고 있는 태크에게 맞춰짐. */
+    margin-top: 10px;
+    margin-left: -20px;
+    box-shadow: #272229 2px 2px 2px;
+}
+#gallery ul li .small:hover{
+    cursor: pointer;
+}
+#gallery ul li:hover .pic{
+    max-width: 320px;
+    opacity: 1;
+    visibility: visible;
+    float: right;
+}

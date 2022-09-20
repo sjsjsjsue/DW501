@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .box{
+            background-color:lightgrey;
+            width: 300px;
+            height: auto;
+            margin: 100px auto;
+            padding: 20px;
+            /* padding : 숫자 px => 위, 아래, 오른쪽, 왼쪽 전부 다 띄우기 */
+        }
+        h2{
+            text-align: center;
+        }
+        input{
+            width:100%;
+            height: 30px;
+        }
+        button{
+            width:100%;
+            height: 30px;
+            cursor:pointer;
+            background-color: lightpink;
+            color:#fff;
+            border:0;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: #fff;
+            color:lightpink;
+            transition: 1s;
+            /* transition: 숫자 s -> 효과를 시간에 맞게 적용 */
+        }
+        .enter{
+            margin-bottom:15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>설문조사</h2>
+        <div class="enter">
+            <input type="text" placeholder="이름 입력">
+        </div>
+        <div class="enter">
+            <input type="text" placeholder="취미 입력">
+        </div>
+        <div class="enter">
+            <input type="text" placeholder="거주 지역 입력">
+        </div>
+        <div>
+            <button class="enter">
+                작성완료
+            </button>
+        </div>
+        
+    </div>
+</body>
+</html>

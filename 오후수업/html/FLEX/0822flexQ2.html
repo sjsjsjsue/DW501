@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            width: 100%;
+            height: 100vh;
+            font-weight: 800;
+            display: flex;
+            flex-direction: column;
+        }
+        header{
+            background-color: lightgray;
+            flex-basis:20%;
+        }
+        .center{
+            background-color: lightseagreen;
+            flex-basis: 60%;
+            display: flex;
+            /* item 도 flex가 될 수 있다. */
+            justify-content: space-between;
+
+        }
+        footer{
+            background-color: midnightblue;
+            flex-basis: 20%;
+        }
+        .nav{
+            background-color: khaki;
+            flex-basis: 15%;
+            border:1px solid black;
+        }
+        .section{
+            background-color: maroon;
+            flex-basis: 60%;
+            border: 1px solid black;
+        }
+        
+        .aside{
+            background-color: olive;
+            flex-basis: 15%;
+            border:1px solid black;
+        }
+        .section{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .art{
+            background-color: cornsilk;
+            flex-basis: 30%;
+            width: 100%;
+            /* height: 50px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>HEADER</header>
+        <div class="center"> 
+            <div class="nav">NAVIGATION</div>
+            <div class="section">SECTION
+                <div class="art">ARTICLE 1</div>
+                <div class="art">ARTICLE 2</div>
+            </div>
+            <div class="aside">ASIDE</div>
+        </div>
+        <footer>FOOTER</footer>
+    </div>
+</body>
+</html>

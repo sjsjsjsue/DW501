@@ -1,0 +1,18 @@
+/* 0822-1.css */
+
+/* .image{ 
+    float: left;
+}*/
+/* float : 옆으로 이동,  but 내가 원하지 않는 태그도 옆으로 올 수도 있다. 
+    주로 list 태그에 사용*/
+#box{
+    display:flex;
+    width: 600px;
+    flex-wrap: wrap;
+}
+/* display:flex : 옆으로 이동. 내가 원하는 태그는 옆으로 오지 않음
+    주로 div 나 공간을 배치할 때 사용 
+    */
+    /* flext-wrap:wrap 아래쪽으로도 배치 가능 
+    ex> ---
+        --- <- 이런식 */

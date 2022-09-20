@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> gallery_view.html </title>
+
+    <link rel="stylesheet" href="gallery_view.css" type="text/css">
+</head>
+<body>
+    
+    <div id="view_box">
+        <div id="view_wrap">
+            <div id="title">
+                제목: <b id="title_view"> </b>
+            </div>
+            <div id="image">
+                <img id="image_view" >
+            </div>
+            <div id="bt">
+                <a href="image_board.html">목록</a>
+                <a href="">수정</a>
+                <a href="">삭제</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    // console.log(location.href);
+    // alert(location.href);
+
+    var url = location.href;
+    // alert(url.split("?")[1]);
+    // split : 분리하다. 라는 함수.
+    var params = url.split("?")[1];
+    params = params.split("&"); 
+    // params[0] - name=뚱이_1, params[1] - type=jpg
+    alert(params[0]);
+    var img_name = params[0].split("=")[1];// 뚱이_1
+    var img_type = params[1].split("=")[1];//jpg
+    var img_title = params[2].split("=")[1];//뚱이1
+
+    img_title = decodeURI(img_title); 
+    // alert(img_name); //이미지 파일 이름
+    // alert(img_type); // 이미지 파일 확장자명
+    // alert(img_title); // 갤러리 제목
+
+    // document - html 문서
+    // document.getElementById("title_view") 
+    
+    // querySelector() -> selector의 구체적인 그룹과 일치하는 document안 첫번째 엘리먼트를 반환 (전체를 나열한 후 비교해서 찾아감 ex)front-end에서 자주 사용)
+    // getElementById() ->id를 통해 엘리먼트를 반환 (계단식으로 찾아감 ex)back-end 에서 주로 사용)
+    //  둘 중에 하나 사용하시오
+    // .innerHTML : HTML 안에 넣어주겠다.
+   
+
+</script>
+
+</html>
+    
+<script>
+    var tview = document.querySelector("#title_view");
+    tview.innerHTML = img_title;
+
+        // src,id, href, vlaue, name => 속성(attribute)
+    var img = document.querySelector("#image_view");
+    img.setAttribute("src",img_name+"."+img_type);
+
+</script>

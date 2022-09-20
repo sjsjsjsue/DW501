@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="memo" type="text">
+    <input id="name" type="text">
+    <input id="apple" type="text">
+    <button onclick ="test()">확인</button>
+
+    <h3> 숫자 입력 받기</h3>
+    <input id="num" type="number">
+    <button onclick="test02()">확인</button>
+
+    <h3>주문 수량 받기</h3>
+    <input id="count" type="number">
+    <button onclick="test03()">주문</button>
+    <!-- 문제 3 주문 수량을 20개 이상 입력하면 , "죄송합니다. 1인당 20개 미만으로 주문 가능합니다." -->
+
+    <h3>메뉴 선택 하기</h3>
+        <select id="menu">
+            <option value="돌체라떼">돌체라떼</option>
+            <option value="바닐라라떼">바닐라라떼</option>
+            <option value="말라차떼">말차라떼</option>
+            <option value="캬라멜마끼야또">카라멜마끼야또</option>
+        </select>
+        <button onclick="test04()">선택 완료</button>
+</body>
+<script>
+    // 왜 body 있냐면  html 해석하고 script 를 해석하기 때문이지  헤헤
+    // function 함수 or 메소드
+    function test(){
+        // input 에 입력한 값 출력하기
+        var memo = document.getElementById("memo").value;
+        var name = document.getElementById("name").value;
+        var apple = document.getElementById("apple").value;
+        alert(memo+","+name+","+apple);
+    }
+    function test02(){
+        var num = document.getElementById("num").value;
+        // if (만약에) 배우기
+        // 만약에 num이 10 이상이라면
+        if(num>=10){ // if 시작
+            alert('10이상입니다.');
+        } //if 끝
+        else{ //if 반대 else 시작
+            alert('10 미만입니다.');
+        }
+     }
+     
+     function test03(){
+        var count = document.getElementById("count").value;
+        if(count>=20){
+            alert('죄송합니다. 1인당 20개 미만으로 주문 가능합니다.');
+        }
+     }
+
+
+     function test04(){
+        var menu = document.getElementById("menu").value;
+        // == : 같다.
+        if(menu == '바닐라라떼'){
+        alert('선택한 메뉴는'+ menu);
+        }
+        if(menu == '돌체라떼'){
+            alert('죄송합니다. 돌체라떼는 품절입니다...');
+        }
+     }
+
+</script>
+</html>

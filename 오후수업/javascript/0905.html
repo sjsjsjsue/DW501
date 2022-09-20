@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    // 배열
+    var array = [3,10,8];
+    // 배열 0번째 출력
+    console.log(array[0]);
+    var item = array[0];
+    console.log(item);
+
+    var result = 0;
+    var item01 = array[1];
+    var item02 = array[2];
+    result = item01+item02;
+
+    var sum = 0;
+    for( var i=0; i<array.length; i++){
+        // console.log(array[i]);
+        sum = array[i]+sum;
+    }
+    console.log(sum);
+
+
+    var array1 = [2,2,9,2,5];
+    // 문제 1. for 문을 이용해서 array1에 2가 몇번 들어가잇는지 알아맞춰보시오.
+    
+    var count = 0;
+    for(var i=0; i<array1.length; i++){
+        if(array1[i] == 2){
+            count++
+        }
+    }
+    console.log("문제 1의 답은 " + count);
+    
+    // 문제 2. for 문을 이용해서 array1 에 있는 모든 숫자를 더하는데, 더한 숫자가 10이면 break 하시오.
+    // break 다시 한번 더 확인!!!!!!!!!!!!!!!
+    var sum = 0;
+    for(var i=0; i<array1.length;i++){
+        sum = array1[i]+sum;
+        if(sum>=10){
+             
+             break; // for 문이 더 이상 실행되지 않고 바로 중단.
+        }     
+    }
+   console.log("문제 2의 답"+ sum);
+    // 문제 3. FOR 문을 이용해서 array1에 있는 숫자 중 최댓값을 구하시오.
+    var max_num = 0;
+    for(var i=0;i<array1.length; i++){
+        if(max_num<array1[i]){
+            max_num = array1[i];
+        }
+    }
+    console.log("문제 3의 답은"+max_num);
+    // 문제 0. for 문을 이용해 배열안에 있는 숫자 출력하기.
+    for(var i=0; i<array1.length; i++){
+        console.log("문제 0의 답은" + array1[i]);
+    }
+
+    // for 문 안에 for 문을 사용할 수 있다.(이중 for 문)
+    for(var i=2; i<=9; i++){ // outer for 문
+        console.log("구구단을 시작합니다."+i+"단 부터 시작");
+        for(var j=1; j<=9;j++){ // inner for 문
+            console.log(i+"*"+j+"="+(i*j));
+        }
+        console.log(i+"단 종료");
+    }
+
+    // 문제. 2~5 단까지 구구단을 만들어보시오.
+
+    for (var i=2;i<=5; i++){
+        for(var j=1; j<=9; j++){
+            console.log(i+"*"+j+"="+(i*j));
+        }
+    }
+
+</script>
+</html>

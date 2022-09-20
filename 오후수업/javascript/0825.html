@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0825</title>
+</head>
+<body>
+    <input id="yourId" type="text" placeholder="아이디 입력">
+    <input type="password" id="yourPassword" placeholder="비밀번호 입력">
+    <input type="password" id="yourRePassword" placeholder="비밀번호 재입력">
+    <input type="email" id="yourEmail" placeholder="이메일 입력">    
+    <button onclick="doJoin()">회원가입</button>
+</body>
+
+<script>
+    function doJoin(){ //함수(기능) 시작
+        var data = document.getElementById("yourId").value;
+        if(data == ""){ //빈칸 체크 
+            alert("고객님 아이디를 입력해주세요.")
+            document.getElementById("yourId").focus();
+            return false; //return : 더 이상 아래 코드를 실행하지 않는다. 
+        }
+
+        var password = document.getElementById("yourPassword").value;
+            if(password == ""){
+                alert("고객님, 비밀번호를 입력해주세요.");
+                document.getElementById("yourPassword").focus();
+                return false;
+            }
+
+        var yourRePassword = document.getElementById("yourRePassword").value;
+            if( yourRePassword == ""){
+                alert("고객님, 비밀번호 재입력해주세요.");
+                document.getElementById("yourRePassword").focus();
+                return false;
+            }
+            
+        var email = document.getElementById("yourEmail").value;
+            if(email == ""){
+                alert("고객님 이메일을 입력해주세요.")
+                document.getElementById("yourEmail").focus();
+                return false;
+            }
+            //  =: 대입  == : 같다.  !=: 다르다.
+            
+        if( password != yourRePassword){
+            alert("비밀번호가 일치하지 않습니다.");
+            return false;
+        }
+
+            alert("회원가입 완료.")
+    } // 함수 끝
+</script>
+</html>

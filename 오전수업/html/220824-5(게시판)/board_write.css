@@ -1,0 +1,66 @@
+/* 게시글 작성 부문 외곽스타일 */
+#write_box{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+}
+#write_wrap{
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* 목록 이동 글씨 스타일 */
+.move_list>a{
+    width: 100px;
+    height: 40px;
+
+}
+.write_form{
+    width: 800px;
+    height: 600px;
+    margin-top: 50px;
+}
+.box{
+    display: flex;
+    width: 800px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.box_title{
+    width: 150px;
+    padding-right: 15px;
+    text-align: right;
+    font-size: 20pt;
+}
+.box_input input{
+    height: 20px;
+    width: 300px;
+
+}
+.box_input textarea{
+    width: 600px;
+    height: 400px;
+    resize: none;
+    /*  resize : 크기 변경 */
+}
+.content_box{
+    height: auto;
+}
+#save_bt{
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    font-size: 15pt;
+    font-weight: 800;
+}
+.bt{
+    width: 155px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}

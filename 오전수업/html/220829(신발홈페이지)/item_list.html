@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item_list.html</title>
+
+    <link rel="stylesheet" href="list.css" type="text/css">
+</head>
+<body>
+    
+    <!-- 쇼핑몰 상품 목록, 상세 페이지 만들기 -->
+
+    <div id="item_box">
+        <div id="item_listwrap">
+            <div id="search_box">
+                <div>
+                    <input type="text" id="search" name="search">
+                </div>
+                <div>
+                    <input type="button" id="search_bt" value="검색">
+                </div>
+            </div>
+            <div id="sort_box">
+                <p>인기순</p>
+                <p>신상품순</p>
+                <p>낮은가격</p>
+                <p>눂은가격</p>
+                <p>리뷰많은</p>
+                <p>판매량</p>
+            </div>
+            <div id="item_list_box">
+                <div class="item_kind"> <!-- 1 -->
+                    <a href="#nike">나이키</a>
+                    <a href="#adidas">아디다스</a>
+                    <a href="#reebok">리복</a>
+                    <a href="#fila">휠라</a>
+                    <a href="#newbal">뉴발란스</a>
+                </div>
+                <div id="nike"></div> 
+                <div class="item_wrap">
+                    <div class="item">
+                        <div class="item_img"><img src="nike1.jpg"></div>
+                        <div class="itme_money">69,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">검은색, 파란색이 섞인 신발</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="nike2.jpg"></div>
+                        <div class="itme_money">79,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">빈티지 신발</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="nike3.jpg"></div>
+                        <div class="itme_money">0</div>
+                        <div class="item_title">LOGO</div>
+                        <div class="item_content">NIKE LOGO</div>
+                    </div>
+                </div>
+                <div class="item_kind"> <!-- 2 -->
+                    <a href="#nike">나이키</a>
+                    <a href="#adidas">아디다스</a>
+                    <a href="#reebok">리복</a>
+                    <a href="#fila">휠라</a>
+                    <a href="#newbal">뉴발란스</a>
+                </div>
+                <div id="adidas"></div>
+                <div class="item_wrap">
+                    <div class="item">
+                        <div class="item_img"><img src="add1.jpg"></div>
+                        <div class="itme_money">0</div>
+                        <div class="item_title">ADIDAS</div>
+                        <div class="item_content">ADIDAS LOGO</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="add2.jpg"></div>
+                        <div class="itme_money">79,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">기본템</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="add3.jpg"></div>
+                        <div class="itme_money">89,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">기본템</div>
+                    </div>
+                </div>
+                <div class="item_kind"> <!-- 3 -->
+                    <a href="#nike">나이키</a>
+                    <a href="#adidas">아디다스</a>
+                    <a href="#reebok">리복</a>
+                    <a href="#fila">휠라</a>
+                    <a href="#newbal">뉴발란스</a>
+                </div>
+                <div id="reebok"></div> 
+                <div class="item_wrap">
+                    <div class="item">
+                        <div class="item_img"><img src="re1.jpg"></div>
+                        <div class="itme_money">0</div>
+                        <div class="item_title">LOGO</div>
+                        <div class="item_content">REEBOK LOGO</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="re2.jpg"></div>
+                        <div class="itme_money">59,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">리복 신발</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="re3.jpg"></div>
+                        <div class="itme_money">69,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">리복 신발</div>
+                    </div>
+                </div>
+                <div class="item_kind"> <!-- 4 -->
+                    <a href="#nike">나이키</a>
+                    <a href="#adidas">아디다스</a>
+                    <a href="#reebok">리복</a>
+                    <a href="#fila">휠라</a>
+                    <a href="#newbal">뉴발란스</a>
+                </div>
+                <div id="fila"></div> 
+                <div class="item_wrap">
+                    <div class="item">
+                        <div class="item_img"><img src="fila1.jpg"></div>
+                        <div class="itme_money">0</div>
+                        <div class="item_title">LOGO</div>
+                        <div class="item_content">FILA LOGO</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="fila4.jpg"></div>
+                        <div class="itme_money">49,000</div>
+                        <div class="item_title">방탄소년단 브로마이드</div>
+                        <div class="item_content">방탄소년단 브로마이드 </div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="fila5.jpg"></div>
+                        <div class="itme_money">39,000</div>
+                        <div class="item_title">방탄소년단 브로마이드 S</div>
+                        <div class="item_content">방탄소년단 브로마이드 S</div>
+                    </div>
+                </div>
+                <div class="item_kind"> <!-- 5 -->
+                    <a href="#nike">나이키</a>
+                    <a href="#adidas">아디다스</a>
+                    <a href="#reebok">리복</a>
+                    <a href="#fila">휠라</a>
+                    <a href="#newbal">뉴발란스</a>
+                </div>
+                <div id="newbal"></div> 
+                <div class="item_wrap">
+                    <div class="item">
+                        <div class="item_img"><img src="new1.jpg"></div>
+                        <div class="itme_money">0</div>
+                        <div class="item_title">NEW BALANCE</div>
+                        <div class="item_content">NEW BALANCE</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="new2.jpg"></div>
+                        <div class="itme_money">59,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">신발</div>
+                    </div>
+                    <div class="item">
+                        <div class="item_img"><img src="new3.jpg"></div>
+                        <div class="itme_money">69,000</div>
+                        <div class="item_title">신발</div>
+                        <div class="item_content">신발</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

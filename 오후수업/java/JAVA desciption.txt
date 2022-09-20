@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+자바를 하기 위한 Step
+Step1. 프로젝트 생성(file - new - Java project - 이름 적고, Don't creat 클릭)
+Step2. 패키지 생성(생략가능) (프로젝트 생성 우클릭 한 후 new 클릭 - package - 이름 생성)
+Step3. 클래스 생성 (package 클릭 후 우클릭 - new - class - 이름 생성 후 method 어쩌구저저구 선택)
+
+syso 쓴 다음 ctrl+space bar 누르면 -> System.out.printIn(); 
+결과값 볼 수 있는 것 -> ctrl+F11
+
+=======
+자바를 하기 위한 Step
+Step1. 프로젝트 생성(file - new - Java project - 이름 적고, Don't creat 클릭)
+Step2. 패키지 생성(생략가능) (프로젝트 생성 우클릭 한 후 new 클릭 - package - 이름 생성)
+Step3. 클래스 생성 (package 클릭 후 우클릭 - new - class - 이름 생성 후 method 어쩌구저저구 선택)
+
+syso 쓴 다음 ctrl+space bar 누르면 -> System.out.printIn(); 
+결과값 볼 수 있는 것 -> ctrl+F11
+
+>>>>>>> c622bdd81087d2736f3d1ccd6ecf998686cdc7a6
+Ctrl + space bar : 자동 완성이 나옴

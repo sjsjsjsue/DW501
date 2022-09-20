@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0914 JavaScript study</title>
+
+    <script>
+// 랜덤함수 Math.floor(Math.random() )
+// Math.floor : 소수점 자리 제거. Math.floor (2.14, 1) -> 2.1
+// Math.random() : 랜덤함수 0.00000... ~ 0.999999.... 중 랜덤 값.
+
+// 문제1. 가위바위보
+// 1. 가위 2. 바위 3. 보
+// 컴퓨터와 가위바위보를 해서 내가 승, 패, 무승부 인지 랜덤함수를 사용해서 출력하시오.
+// Hint : 논리 연산자 : &&(and)(전부다 참이어야 맞음) , ||(or)(1개가 참이여도 참!), !(not)
+
+/*var user = parseInt(prompt("1. 가위 2. 바위 3. 보"));
+var computer = Math.floor(Math.random()*3)+1;
+
+
+/* if(user > computer){
+//     alert("컴퓨터 승리");
+// }
+// else if( user == computer){
+//     alert("무승부");
+// }
+// else{
+//     alert("내가 승리");
+ } 내가 한 것 */
+
+/*
+if(user==computer){ //비겼을 때.
+                document.write("비겼습니다. <br> 나의 점수는 :"+user+ "<br> 컴퓨터의 점수는 : "+computer+"<br>");
+            }
+            //1 : 주먹 2 : 가위 3: 보
+            else{
+                   // 이겼을때 : 나1 컴2 / 나2 컴3 / 나3 컴1
+                   if(user >= 1 && user <=3){
+                        if ((user <=2 && user<computer) || user ==3 && computer ==1){
+                            document.write("컴퓨터가 이겼습니다. <br> 나의 점수는 : "+user+"<br> 컴퓨터의 점수는 :"+computer+"<br>")
+                        }
+                        else{
+                            document.write("내가 이겼습니다.<br> 나의 점수는 : "+user+"<br> 컴퓨터의 점수는 : "+computer+"<br>");
+                        }
+                   }
+                   else{ //input : 1,2,3이 아닐 때
+                        document.write("잘못된 입력입니다.");
+                   }
+            } <= 인터넷 
+*/
+    
+/*    if( user == computer){
+        document.write("비겼습니다.");
+    }
+    else if( (user ==1 && computer == 3) || (user == 2 && computer ==1) || (user == 3 && computer == 2)){
+        document.write("나의 승 >)<");
+    }
+    else{
+        document.write("나의 패배...");
+    } <=  쌤이 한 것
+*/
+        
+
+    /* 문제 2.  주차장 요금
+                주차장 기본 요금 : 1000원. (1000원에 기본시간 30분)
+                10분당 100원 추가 요금
+                2시간 이상 주차시 기본 요금 1700원 으로 변경(2시간에 1700원)
+                4시간 이상 주차시 기본 요금 2700원 으로 변경(4시간에 2700원)
+                8시간 이상 주차시 기본 요금 5000원(추가 요금 없음) 
+                
+                주차 시간을 입력받아 요금 구하기( 주차시간은 시간, 분 따로 입력)
+                주차시간 2 34 -> 2시간 34분 주차
+                2시간 34분 주차 요금 : 2000원
+                1시간 05분 주차 요금 : 1300원
+                0시간 31분 주차 요금 : 1000원
+                6시간 29분 주차 요금 : 4100원
+
+                */
+
+   /* var hour = parseInt(prompt("시간 : "));
+    var min = parseInt(prompt("분 : "));
+    var cost = 1000;
+    cost = hour >= 2 ? 1700 : cost;
+    
+    var ptime = hour >= 3 ?  hour : min - 30; 
+    var price = (parseInt(ptime/10)*100) + cost;
+    price = min < 40 ? cost: price;
+
+    
+    document.write( hour +"시간" +min+"분 <br> 주차요금 : "+price); <= 내가 한 것 망햇듬 ㅎㅎ.
+     */
+
+     /*var cost = 1000;
+     var add = 100;
+
+     var hour = parseInt(prompt("주차시간(시간) : "));
+     var min = parseInt(prompt("주차시간(분) : "));
+
+     var total_time = (hour*60) + min;
+     if(hour >= 8){ // 8시간 이상 주차
+        cost = 5000;
+        total_time=0;
+     }else if(hour >=4 ){ //4시간 이상 주차
+        cost = 2700;
+        total_time = total_time - 240;
+     }else if(hour >= 2 ){ // 2시간 이상 주차
+        cost = 1700;
+        total_time = total_time - 120;
+     }else if( total_time >= 30){ // 30분 이상 주차
+        total_time = total_time - 30;
+     }
+
+     var price = cost + (parseInt(total_time / 10) *100);
+     price = (hour == 0 & min <= 30 ) ? cost : price;
+     document.write("주차요금 : " + price + "원") <= Teacher
+     */
+     
+     /* if 문 : 조건식의 참(true), 거짓 (false) 에 의해서 동작.
+                if문에 사용될 조건식은 범위가 큰 것부터 조건식 작성
+                조건식 만들기 어렵다면 먼저 노트에 작성해보시오.
+                if 문은 가정하에 만들어야 한다. 
+    */
+
+     /* 예제 문제. 바이킹 탑승 키 제한 150 이상 190 이하.
+            만약 내가 키를 145라고 한다면 조건식은 어떻게 만들어야할까?
+            145를 이용하여 조건식으 결과가 거짓이 나오게 만들기.
+            만약 175를 입력한다면 조건식의 결과가 참이 나오게 만들기.
+     */
+
+     /* 인적사항 - 직업이 학생일 경우 현재 재학중 학교 이름 작성.
+     var name = prompt("이름");
+     var addr = prompt("주소");
+     var email = prompt("이메일");
+     var job = prompt("직업");
+     var school;
+     if( job == 학생){
+        school = prompt("재학중인 학교 이름");
+     }
+  */
+    /*  핸드폰 번호 입력 " - " 없이 숫자만 입력하시오.
+    
+    if(폰.contain("-")){
+        alert(" - 없이 입력하세요.");
+    }
+    
+
+    var 폰 = "010-1234-1234";
+    if(폰.indexOf("-")!= -1){
+        alert(" - 없이 입력하세요.");
+    }
+    */
+
+    /* switch 와  if 문 차이점
+        if 문은 참과 거짓에 의해서 동작.
+        switch 문은 선택에 의한 동작.
+        switch 문에서는 참과 거짓의 결과가 나오는 조건식을 사용하지 않는다.
+        switch 문은 프로그램에서 가장 큰 조건문 작성에 사용된다.
+        메뉴, 마우스, 키보드, 프로그램 창 이동
+    */
+
+    /* switch (조건을 넣어줘야함){switch(조건){
+        case newfile:
+        case save:
+        case open folder:
+        case exit:
+    }
+    */
+
+
+     /*var num = 30;
+
+    switch(num){
+        case 1:
+        case 8:
+        case 5:
+            document.write("5를 선택했습니다."); //1,8,5가 실행되면 document.write("5를 선택했습니다.") 가 실행 됨. 
+            break;
+        case 11:
+            document.write("11를 선택했습니다.");
+            break;
+        case 25:
+            document.write("25를 선택했습니다.");
+            break;
+        case 10:
+            document.write("10을 선택했습니다.");
+        default: 
+            document.write("잘못 선택했습니다.");
+    }
+    // switch 문의 특징. 위에 것이 실행되면 그 아래 것이 맞지는 않지만, 실행이 됨. 중괄호(" {} ") 닫기 전까지 쭈~~욱 실행 됨.
+    // 내가 원하는 조건만 실행되길 원하면  switch 문을 강제 종료("break")를 넣어야함
+    // switch 안에 case 조건이 맞는게 없다면 실행이 안됨. 
+    // case 조건에 맞는게 없다면  "default: " 써야함. ( <= 예외적인 상황에 사용)
+    case 뒤에 only 문자열, 정수 가 올 수 있음. 대신 혼용쓰면 안됨. 하나의 타입만 가능. 문자열은 문자열. 정수는 정수!!***
+    */
+
+
+   /*  var select = prompt("1.데이터저장. 2. 데이터삭제. 3. 데이터추가 4. 데이터수정. 5. 종료.")
+
+    switch(select) {
+        case "데이터저장":
+            break;
+        case "데이터삭제":
+            break;
+        case "데이터추가":
+            break;
+        case "데이터수정":
+            break;
+        case "종료":
+            break;
+        default: 
+            document.write("메뉴를 다시 선택해주세요."); 
+    }  */
+
+
+    /* 문제.
+    가위바위보 "랜덤함수" 사용
+    랜덤값: 1. 가위 2. 바위 3. 보
+    랜덤값에 따라 현재 가위바위보 중 무엇을 내엇는가 출력
+    Switch 문으로 구현
+    */
+
+    /* var game = Math.floor(Math.random()*3)+1;
+    
+    switch(game){
+        case 1: document.write("가위");
+        break;
+        case 2: document.write("바위");
+        break;
+        case 3: document.write("보");
+        break;
+    }
+       */
+    /*
+    var user = parseInt(prompt("1. 가위 2. 바위 3. 보"));
+    var com = Math.floor(Math.random()*3)+1;
+
+    switch( user - com ){
+        case -2:
+        case 1:
+            document.write("유저 승");
+            break;
+        case 2:
+        case -1:
+            document.write("컴퓨터 승");
+            break;
+        case 0:
+            document.write("비겼다.");
+            break;
+    }
+    */
+
+    /*
+    문제.
+        점수 입력받아서 90점 이상이면 "A 등급", 80점 이상이면 " B 등급", 70점 이상이면 "C등급", 나머지는 "F 등급"
+    */
+
+    var user = parseInt(prompt("점수는 몇 점 인가요?"));
+    // parseInt : 문자를 숫자로 변경해주는 역할
+    switch( parseInt(user/10)){
+        case 10:
+        case 9:
+            document.write("A등급");
+            break;
+        case 8: 
+            document.write("B등급");
+            break;
+        case 7: 
+            document.write("C등급");
+            break;
+        default: 
+            document.write("F등급"); 
+    }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

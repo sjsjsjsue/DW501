@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num">
+    <button onclick="ggd()">구구단시작</button>
+    <div id="result">결과</div>
+
+    <hr>
+    <!-- 
+    <input type="button" onclick="select_coin('front')" value="앞면"> 
+    <input type="button" onclick="select_coin('back')" value="뒷면">
+    <hr>
+    <div id="result01">결과</div> -->
+
+
+    <input type="number" id="row">;
+    <input type="number" id="col">;
+    <button onclick="make()">테이블 생성</button>
+    <hr>
+    <div id="result1"></div>
+</body>
+<script type="text/javascript">
+    //루프문
+
+    // 초기값,조건식,증강식
+    // 시작번호,끝나는 번호
+    // 시작숫자부터 마지막숫자까지 얼마나 증가 또는 감소
+    // var i = 1;
+    // while(i <10){
+    //     document.write("2 * "+ i + " = " + 2 * i +"<br>");
+    //     i++;
+    // }
+
+        function select_coin(it){//매개변수
+            var res = document.getElementById("result01");
+            var out = "";
+            var i = 1;
+            var count = 0;
+            
+            // if((coin%2 == 0) && it == "front"){
+                //     res.innerHTML = "앞면 , 정답 " + coin;
+                // }
+                // else if((coin%2 ==1) && it == "back"){
+                    //     res.innerHTML = '뒷면 , 정답 ' + coin;
+                    // }
+                    // else{
+                        //     res.innerHTML = "오답 " + coin;
+                        // }
+            while(i<11){
+                var coin = Math.floor(Math.random()*10)+1;
+                switch((coin % 2)){ 
+                    case 0: 
+                        switch(it){
+                            case "front": out += "앞면 , 정답 <br>";
+                                          count++;
+                                          break  
+                            case "back" : out += "오답 <br>";
+                                          break
+                        }break
+                            case 1: 
+                        switch(it){
+                            case "back" : out += "뒷면 , 정답 <br>";
+                                          count++;
+                                          break
+                            case "front": out += "오답 <br>";
+                                          break
+                        }break 
+                }i++
+            }
+            out += "정답확률 : " + (count*10 + "%") // out = out + "a"
+            res.innerHTML = out;
+        }
+
+
+    function ggd(){
+        var result = document.getElementById("result");
+        var num = document.getElementById("num");
+        var out= "";
+        i=num.value;
+        var count=0;
+        while(count<num.value){   
+            count++;
+            
+            out += i+ "<br>";
+        }
+        result.innerHTML = out;
+        //무한 루프
+        // 무한루프 : 무한대 반복, 몇번 반복해야 하는지 정해져 있지 않는 경우
+    }
+    // var k = 1;
+    // while(true){
+    //     var num = parseInt(prompt());
+    //     document.write(num + "<br>")
+    //     if(num == 0) break;
+    // }
+
+
+    function make(){
+        var res = document.getElementById("result1");
+        var row = document.getElementById("row");
+        var col = document.getElementById("col");
+
+        var out ="";
+        var i=1;
+        out +="<table>";
+        while( i<=row.value){ 
+            // out +="<tr> <td> 1</td><td>2</td></tr>"// 행을 반복
+
+            out += "<tr>";
+                var k=1;
+                while(k<=col.value){
+                    out += "<td>a</td>"
+                    k++;
+                } // 중첩 반복문 : 반복문 안에 반복문 만들 수 있음 ex) if -if / if - switch / switch - if/ ...
+                out += "</tr>";
+            i++;
+        }
+        out +="</table>";
+
+        res.innerHTML = out;
+    }
+    
+</script>
+
+<style>
+    table tr td{
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+    }
+</style>
+</html>

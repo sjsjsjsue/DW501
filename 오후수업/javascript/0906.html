@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    var x = 20; // x 라는 이름을 가진 변수 생성
+    x =20; // x 라는 변수 재활
+
+    var x = 20; //변수 이름은 중복될 수 없다. <- 오류가 나야 정상. 하지만 자바스크립트는 허용을 해줌. 
+    // 자바 스크립트가 허용하는 문제점 1 : 원래는 변수이름을 중복해서 선언할 수 없다.
+
+    let y1 = 10;
+    let y2 = 10; //<- 오류 남 why? 변수 이름이 중복 생성.. 
+
+
+    //  for &배열 무한 반복
+    // 1 부터 30까지 출력하시오.for 문 사용
+
+    // for(i=0;i<=30; i++){
+    //     // console.log(i);
+    // }
+
+    var array = [5,10];
+    var sum = array[0] + array[1];
+    console.log(sum);
+
+    var array1 = [2,4,9,10];
+    for(var i=0; i<array1.length; i++){
+        if(array1[i]%2 ==0){
+            console.log(array1[i]);
+        }
+    }
+</script>
+
+</html>

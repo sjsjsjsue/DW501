@@ -1,0 +1,16 @@
+table tr th {
+    border:1px solid black;
+    width:100px;
+    height:30px;
+    background-color: lightpink;
+}
+table tr td{
+    border:1px solid black;
+    width:100px;
+    height:30px;
+    text-align: center;
+}
+
+.title{
+    background-color:lightblue;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex_응용</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 1000px;
+            height: 400px;
+            background-color: #ccc;
+            margin:120px auto;
+            display: flex;
+        }
+        .col{
+            height: 100%;
+            color: #fff;
+            /* color 는 폰트 색깔을 의미 */
+            padding: 25px;
+            flex: 1;
+            /* flex:1 은 아이템의 크기를 컨테이너 크기에 동일하게 맞춰줌 */
+            position: relative;
+            transition: 0.7s;
+            /* transition: 부드럽게 변함; */
+        }
+        .col:nth-child(1){
+            background-color: #283491;
+        }
+        .col:nth-child(2){
+            background-color: #f18684;
+        }
+        .col:nth-child(3){
+            background-color: #6ee2f1;
+        }
+        h2{
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .caption{
+            width: 230px;
+            font-size: 12px;
+            margin-top: 28px;
+            display: none;
+            /* none은 강제로 안보이게 해줌 */
+        }
+        .caption button{
+            border: 1px solid #fff;
+            border-radius: 30px;
+            outline: none;
+            padding: 8px 18px;
+            color: #fff;
+            /* background-color: transparent -> 배경색을 투명하게 */
+            background-color: transparent;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .col img{
+            width: 200px;
+            position: absolute;
+            /* absolute 는 부모 태그를 기준으로 위치를 변경함 
+                부모 태그에는 relative 적어야함*/
+            right: 0;
+            bottom:0;
+        }
+        .col:hover{
+            flex-grow:2.5 ;
+            /* flex-grow: 아이템이 커짐 */
+        }
+        .col:hover .caption{
+            display: block;
+            /* block 는 none의 반대 */
+        }
+        .col:hover h2{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col">
+            <h2>크로스핏</h2>
+            <div class="caption">
+                <p>크로스핏은 정신과 체력싸움이다.</p>
+                <button>Know More</button>
+            </div>
+            <img src="img1.png">
+        </div>
+        <div class="col">
+            <h2>웨이트</h2>
+            <div class="caption">
+                <p>웨이트는 누구나 쉽게 접근 할 수 있다?</p>
+                <button>Know More</button>
+            </div>
+            <img src="img2.png">
+        </div>
+        <div class="col">
+            <h2>요가</h2>
+            <div class="caption">
+                <p>요가는 정신력과 유연성을 향상시켜준다.</p>
+                <button>Know More</button>
+            </div>
+            <img src="img3.png">
+        </div>
+    </div>
+</body>
+</html>

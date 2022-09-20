@@ -1,0 +1,119 @@
+body, div, input, button{
+    margin:0;
+    padding:0;
+}
+
+#mask{
+    width: 100%;
+    height: auto;
+    font-size: 12pt;
+    color: black;
+}
+#search_wrap{
+    width: 1000px;
+    height: 80px;
+    margin: 0 auto;
+}
+/* 내가 잘 만들었는지 확인하고싶다면 선을 넣지말고 배경색을 넣으샴
+because 선은 픽셀이 들어감 */
+#menu_wrap{
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border-top: 2px solid lightgray;
+    border-bottom: 2px solid lightgray;
+}
+#wrap{
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+}
+.search_form{
+    width:100%;
+    height: 50px;
+    padding: 20px 0 10px 0;
+    /* 여백순서: 위 오른쪽 아래 왼쪽 */
+    display: flex;
+}
+
+.logo{
+    width: 200px;
+    font-size: 40px;
+    font-weight: 800;
+    color:#19ce60;
+    /* float: 정렬의 순서를 바꿈 
+     float:left;*/
+}
+
+#search_word{
+    width: 400px;
+    height: 40px;
+    font-size: 25px;
+    border:0;
+}
+/* ">"의 의미는 그 태그 바로 밑에 있는 태그 */
+.search_bt>button {
+    height: 40px;
+    width: 100px;
+    font-size: 25px;
+    background-color: #19ce60;
+    color:white;
+    border:0;
+}
+.search_bt>button:hover{
+    cursor: pointer;
+}
+.search{
+    display:flex;
+    border:2px solid #19ce60;
+    margin-top: 6px;
+    height: 40px;
+}
+/* padding을 쓰면 div 몸짓이 커짐. */
+.menu_list{
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px 0 10px 0;
+}
+#menu_ul{
+    margin: 0;
+    padding:0;
+    list-style-type: none;
+    width:1000px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 800;
+    /* font-weight : 글씨 굵기 */
+}
+.menu_nav{
+    float:left;
+    display:inline;
+    /* width:calc( 1000 / 10 * 1px) 
+      계산하는 방법에는 사.칙.연.산. 앞. 뒤.에 "띄.어.쓰.기." 조심조심!!! % or 계산하는 법*/
+    height: 30px;
+    line-height: 30px;
+    color:#19ce60;
+    margin-right: 20px;
+    /* li 태그에 동일한 간격을 원한다면 width 값을 없애고, display:inline 으로 해야함!! 
+       그리고 margin을 줘야 모든 메뉴 가격이 될 수 있음!*/
+}
+.menu_nav:hover{
+    cursor:pointer;
+}
+/* #wrap{
+    display: flex;
+} */
+#contents{
+    width:700px;
+    height: 800px;
+    background-color: #D1B2FF ;
+}
+#sub{
+    width:280px;
+    height: 800px;
+    background-color: #FAF4C0;
+    margin-left: 20px;
+}

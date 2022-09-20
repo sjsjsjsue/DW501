@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0915 JavaScript</title>
+    
+    <script type="text/javascript">
+        
+        /* 아래 것들을 통해 자바스크립트가 사용할 수 있음?
+        document.getElementById();
+        document.querySelector();
+        
+        document.getElementById("id 이름"); // id 가져오기
+        document.getElementsByClassName("class 이름");//class 가져오기
+        document.getElementsByName("name 이름 "); // name 가져오기 
+        document.getElementsByTagName("Tag 이름"); // tag 가져오기
+
+        document.querySelector("#id 이름") // id 가져오기
+        document.querySelector(".class 이름") // class 가져오기 (이름이 하나일 경우)
+        document.querySelectorAll(".class 이름")//class 가져오기 (이름이 2개 이상일 경우)
+        document.querySelectorAll("tag 명") // tag 가져오기
+        document.querySelectorAll("[name명]"); // name 가져오기
+        */
+
+        /*function data_push(){
+            // input 태그 가져오기
+        var number = document.getElementById("num");
+        var val = number.value;
+
+        // id 가 result 인 div 태그 가져오기
+        var res = document.getElementById("result");
+            res.innerHTML = val; // div 태그 안에 값 넣어주기
+        // alert(val);
+        }
+        */
+        // 문제. 입력값이 짝수인지 홀 수 인지 출력하시오.  
+       
+        function data_push(){
+            var a = document.getElementById("num").value; // .value == number.value
+            var res = document.getElementById("result");
+            if(a %2 ==0 ){
+                res.innerHTML = "짝수입니다.";
+             }else{
+            res.innerHTML = "홀수입니다.";
+            }
+//  if 나 else 가 참인 것이 1줄이면 중괄호( "{ }") 을 안해도 됨.
+        }
+        
+
+    </script>
+
+</head>
+
+
+<body>
+    
+    <input type="text" name="num" id="num">
+    <button type="button" onclick="data_push()"> 입력 </button>
+    <hr/>
+    <div id="result">
+
+    </div>
+     
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* acc.css */
+
+.accordianMenu{
+    font:12px/20px 돋움;
+    color: #424242;
+    background-color: #fff;
+    padding: 10px;
+    width: 500px;
+    margin: 0;
+}
+.accordianMenu h1{
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #aeaeae;
+}
+.accordianMenu h2{
+    margin: 5px 0; /* 위 아래 5px, 왼쪽 오른쪽 0*/
+    padding: 0;
+}
+.accordianMenu h2 a{
+    font-size: 15px;
+    display: block;
+    font-weight: normal;
+    color: #424242;
+    text-shadow: 2px 2px 2px #aeaeae;
+    text-decoration: none;
+    background: -webkit-gradient(linear,left top, left bottom, from(#d4f4fa),to(#6799ff));
+    background: -moz-linear-gradient(top, #d4f4fa,#6799ff);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 50px;
+    line-height: 50px; /* 높이에서 글자가 옮겨짐? */
+}
+/* target은 활성화된 링크 태그에 사용하며 선택된 영역에만 스타일을 부여할 수 있습니다 */
+.accordianMenu :target h2 a, .accordianMenu h2 a:hover{
+    background: -webkit-gradient(linear,left top, left bottom, from(#6799ff),to(#d4f4fa));
+    font-weight: 800;
+}
+.accordianMenu p{ 
+    padding: 0 10px;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease-in;
+    transition: height 0.5s ease-in;
+    /* ease-in 애니메이션이 천천히 시작되고 최고 속도로 끝납니다.
+    ease-out 애니메이션을 최고 속도로 시작한 다음 천천히 완료합니다.
+    ease-in-out 느리게 시작되고 애니메이션 중간에서 가장 빨라진 다음 천천히 완료됩니다.
+    ease처럼 ease-in-out이 빨리 종료보다 약간 시작 제외.  */
+}
+.accordianMenu :target p{
+    height: 100px;
+    overflow: auto;
+}

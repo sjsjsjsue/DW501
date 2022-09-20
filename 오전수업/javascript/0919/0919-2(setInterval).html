@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 0919-2 </title>
+</head>
+<body>
+    
+    <img src="../../image/1.jpg" id="mimg" alt="" style="width: 300px; height:300px">
+    <div>
+        <button onclick="start()">시작</button>
+        <button onclick="end()">종료</button>
+        <button onclick="pre()">이전</button>
+        <button onclick="next()">다음</button>
+    </div>
+</body>
+
+<script>
+    var idx =1; 
+    function next(){
+        idx++;
+        if(idx == 5){
+            idx = 1;
+        }
+        var img = document.getElementById("mimg");
+        img.src = "../../image/" + idx +".jpg";
+
+    }
+// 문제.  pre도 똑같이 만들어보시오.
+    function pre(){
+        idx--;
+        if(idx == 0){
+            idx = 4;
+        }
+        var img = document.getElementById("mimg");
+        img.src = "../../image/" + idx +".jpg";
+    }
+//    var ids = 1; 
+//     function pre(){
+//         ids--;
+//         if(ids == -5){
+//             ids = 1
+//         }
+//         var img = document.getElementById("mimg");
+//         img.src = "../../image/" + ids +".jpg";
+//     }
+
+    var set = "";
+
+    function start(){
+
+        // setInterval = 어떤 코드를 일정한 시간 간격을 두고 반복해서 실행하고 싶을 때 사용.
+        set = setInterval(function(){
+            idx++
+            if(idx == 5){
+                idx =1;
+            }
+            var img = document.getElementById("mimg");
+            img.src = "../../image/"+idx+".jpg";
+        
+        },1000   );
+       // 1000 = 1초 / 초를 빠르게 하고 싶다면 1000보다 낮게하면 됨!
+    }
+    function end(){
+        // clearInterval = setInterval 을 끝냄
+        clearInterval(set);
+    }
+
+</script>
+</html>

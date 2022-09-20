@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text">
+    <button onclick="doClick()">클릭하시오</button>
+
+    <h2>메뉴 선택 xptmxm</h2>
+    <select id="menu">
+        <option value="null">메뉴를 선택해주세요.</option>
+        <option value="아아">아이스 아메리카노</option>
+        <option value="모카">카페모카</option>
+        <option value="라떼">바닐라라떼</option>
+    </select>
+    <input type="number" id="count" placeholder="수량 입력">
+    ICED : <input type="radio" name="type" value="ice" checked>
+    HOT : <input type="radio" name="type" value="hot">
+    <button onclick="doOrder()">주문하기</button>
+</body>
+<script>
+    var x=10;
+    // 위에서 아래로 해석, 오른쪽에서 왼쪽으로 해석
+    // var -> 데이터 타입
+    if(x == 10){
+        console.log("x는 10입니다.");
+    }
+    if(x > 5){
+        console.log("if 실행");
+    }
+    var word = "컵라면"
+    if(word == "컵라면"){
+        console.log("오늘은 컵라면을 먹었습니다.");
+    }
+    var word2 = "김밥"
+    if(word2 == "돈까스"){
+        console.log("오늘은 김밥을 먹었었요.");
+    }
+    else{
+        console.log("오늘은 돈까스를 먹었어요.");
+    }
+    function doClick(){
+        // value : input 값
+        var name = document.getElementById("name").value;
+        console.log(name);
+        if(name == "김밥"){ // if 시작
+            console.log("오늘 김밥을 먹었어요.")
+        } // if 끝
+    }
+        function doOrder(){
+            var selectedMenu = document.getElementById("menu").value;
+            console.log(selectedMenu);
+
+            if(selectedMenu == "아아"){
+                console.log("죄송합니다. 아아는 오늘 품절입니다");
+            }
+            if(selectedMenu == "null"){
+                console.log("메뉴를 선택해주세요.");
+            }
+            if(selectedMenu == "모카"){
+                console.log("카페모카입니다.")
+            }
+
+            var count = document.getElementById("count").value;
+            console.log(count);
+
+            if(count > 10 ){
+                console.log("죄송합니다. 1인 10까지 주문 가능합니다.");
+            }
+            var type = document.querySelector("input[name=type]:checked").value;
+            console.log(type);           
+        }
+
+    
+</script>
+</html>

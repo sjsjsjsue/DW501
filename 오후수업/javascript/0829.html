@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 0829.html </title>
+</head>
+<body>
+    <input id="name" type="text">
+    <button onclick="check"> 확인 </button>
+</body>
+<script>
+    // input에 작성한 내용 alert 창으로 출력
+    // function check(){
+        // var x = document.getElementById("name");
+        // alert(x); 
+    // }
+
+    // for 문 (뭔가를 반복해서 실행하는 것.)
+    var x = 10;
+    // var : 데이터 타입(자바 스크립트는 var로 데이터 타입을 통일). x : 변수 이름 : ->대입 연산자. 10-> 데이터
+    for( var i=0; i<6; i++){ //for문 시작
+        console.log(i);
+    } // for 문 끝
+
+    // 1. var i=0; 초기문
+    // 2. i<3 ; 조건식
+    // 3. console.log(i); => 작업문
+    // 4. i++ -> 반복 후 작업 
+
+    var i = 2;
+    if(i%2 == 0){
+        console.log("짝수입니다.");
+        // % => 나머지
+    }
+     
+    for(var i=1; i<=10; i++){ // 문제 1. 짝수를 출력하시오.
+        // console.log("i는 :"+i);
+        if( i % 2 == 0){
+            console.log("i 는 : " +i+ "짝수입니다.");
+        }
+    } // 정답-> 2,4,6,8,10
+    for(var i=1; i<=5; i++){
+        if( i == 4 ){
+        console.log("i는 " +i+"입니다.");
+        }
+    }
+    // A || B => OR 연산자 (shift + \)
+    // 크롬에서 f12 누르고 console 에서 ② 가 나오면 2번 출력되었다는 말
+    for (var i=0; i<=5; i++){
+        if(i == 2 || i == 4){
+        console.log("hello world");
+        }
+    }
+
+    var count = 0;
+    for(var i=1; i<=10; i++){
+        if(i%2 ==0){
+            count++
+        }
+    }
+    console.log("i 의 짝수 개수는 " +count+"입니다.");
+
+    var sum = 0;
+    for(var i=1; i<=10; i++){
+        sum = sum + i;
+    }
+    console.log("1 부터 10 까지 합산은"+sum);
+</script>
+</html>

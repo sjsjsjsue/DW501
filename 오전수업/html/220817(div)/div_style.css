@@ -1,0 +1,59 @@
+/* div_style.css */
+
+#div1{
+    /*  top :위, right: 오른쪽, left: 왼쪽, bottom: 아래 */
+    /* 여백 - 밖 : margin
+            - 안 : padding */
+    /* div 옆에 다른 태그가 올 수 없음. why? div 옆에 있는 영역은 div 영역이고 크기만 줄인거임.
+        div 옆에 div 태그가 올 수 있음. */
+    margin-top: 50px;
+    margin-left:100px;
+    border:1px solid black;
+    width:200px;
+}
+#div2{
+    margin:30px 0 0 50px;
+    /* margin & padding : 위 오른쪽 아래 왼쪽 ( like 시계방향) 
+    특정 방향에 대해 여백을 원하면 margin-top */
+    border:1px solid black;
+}
+#div3{
+    border:1px solid black;
+    padding-top:50px;
+    padding-left:100px;
+    width:200px;
+    /* 안쪽 여백 포함 넓이가 추가가 됨. */
+}
+#div4{
+    margin:45px 0 45px 80px;
+    border:1px solid black;
+}
+#div5{
+    border:1px solid black;
+    margin: 0 0 0 80px;
+}
+#div6{
+    border:1px solid black;
+    width:600px;
+    height:400px;
+}
+/* 높이값을 주면 안에 글이 있어도 only 높이값만 표시. 글자는 노상관
+   높이 설정 잘 안해주면 아래있는 div 또는 다른 태그와 헷갈릴 수 있음 */
+.d{
+    height:30px;
+    border:1px solid black;
+}
+.d1{
+    background:lightpink;
+    margin-top:20px;
+}
+.d2{
+    background:lightslategray;
+    height:auto;
+    padding-top:25px;
+    padding-bottom:25px;
+}
+.d3{
+    background:lightskyblue;
+    margin:15px 10px 0 10px;
+}

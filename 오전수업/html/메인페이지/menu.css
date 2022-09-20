@@ -1,0 +1,50 @@
+#menu{
+    width: 1000px;
+    height: 80px;
+    position: relative;
+}
+#menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+#main_menu{
+    width: 1000px;
+    height: 80px;
+    position: relative;
+}
+#main_menu>li{
+    width: 200px;
+    height: 80px;
+    float: left;
+    line-height: 80px;
+    text-align: center;
+    background-color: pink;
+    position: relative;
+}
+/* #main_menu .sub li{
+    width: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    top: -10px;
+}
+#main_menu .sub{
+    opacity: 0;
+    /* opacity: 0 안보임/ opacity: 1 보임 
+} */
+#main_menu .sub {
+    display: none;
+    -webkit-transition: all 1s;
+    transition-duration: 2s;
+    /* display: none -> 화면 상 어떤 영역을 차지하지 않고 완전히 삭제된 것처럼 보이게 합니다 */
+}
+#main_menu .sub li{
+    -webkit-transition: height 0.5s;
+}
+#main_menu:hover .sub{
+    display: block;
+    background-color: lightgoldenrodyellow;
+    height: 320px;
+}

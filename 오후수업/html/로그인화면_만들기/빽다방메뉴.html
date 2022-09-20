@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빽다방 메뉴</title>
+
+    <style>
+        .menu{
+            background-color: gray;
+            width: 250px;
+            height: auto;
+            margin: 100px auto;
+            padding : 10px;
+            
+        }
+        .h2{
+            padding-top: 30px;
+            text-align: center;
+        }
+        select{
+            width:100%;
+        }
+        .input_box{
+            margin-bottom:10px;
+        }
+        /* input[type=number] <- input type이 number인 것에만 효과를 주겠다. */
+        input[type=number]{
+            width:100%;
+        }
+        .button{
+            background-color: lightblue;
+            color:white;
+            border:0;
+            border-radius:5px;
+        }
+        .button:hover{
+            background-color: white;
+            color:lightblue;
+            cursor: pointer;
+        }
+        button{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <h2 class="h2">빽다방 메뉴</h2>
+        <div class="input_box">
+            <select>
+                <option>----메뉴를 선택해주세요----</option>
+                <option>아메리카노</option>
+                <option>까페라떼</option>
+                <option>바닐라라떼</option>
+                <option>카라멜 마끼야또</option>
+            </select>
+        </div>
+        <div class="input_box">
+            ICED : <input type="radio" name="type"> 
+            HOT : <input type="radio" name="type">
+        </div>
+        <div class="input_box">
+            M size : <input type="radio" name="size">
+            L size : <input type="radio" name="size">
+        </div>
+        <div class="input_box">
+            <input type="number" placeholder="수량을 입력해주세요.">
+        </div>
+        <div class="input_box">
+            <textarea cols="35" rows="10" placeholder="추가 사항이 있으면 적어주세요."></textarea>
+        </div>
+        <div class="input_box">
+            <button class="button">주문완료</button>
+        </div>
+    </div>
+</body>
+</html>
