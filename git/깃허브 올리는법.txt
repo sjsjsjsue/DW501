@@ -1,0 +1,24 @@
+repositories : 폴더
+
+git hub 폴더 만드는 법
+1. new 클릭 후 repositories 를 만든다.
+2. add a README file 을 체크하시오.
+3. creat 클릭
+
+집 와서 폴더 만들어서
+code 복사 후 
+git bash 클릭 후
+git clone 옆에 폴더 코드 복사 
+(** 마우스 우클릭 후 paste!!!
+ctrl + v 하면 안됨 )
+***git 허브에 만든 폴더를 열어야함!!!!
+
+commit 할 때 위에 Message 꼭 입력!!!!!
+
+하고 ... 누르고 pull, push 옆 push to 누르기!!!
+
+폴더 삭제했다면
+
+
+깃허브에서 파일을 변경한 후 
+vs 코드에서 ... 누르고 pull - pull from 누르면 알아서 업로드 가능 
