@@ -18,7 +18,7 @@
                         <img src="computer.png" alt="">
                     </div>
                     <div class="com_img">
-                        <img src="1.png" alt="" id="ress" onclick="start()">
+                        <button><img src="1.png" alt="" id="ress" onclick="start()"></button>
                         <div>            
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="rsp">
                     <button onclick="doClick(this)" id="P"><img  src="3.png" class="u_paper" alt="" ></button>
-                </div><!--  -->
+                </div>
             </div>
             <div class="text"> <h1>USER</h1> </div>
         </div>
@@ -69,36 +69,40 @@ var computer = Math.floor(Math.random()*3)+1;
         var scis = document.getElementsByClassName("u_scis"); //1
         var rock = document.getElementsByClassName("u_rock"); //2
         var paper = document.getElementsByClassName("u_paper"); //3
-        
+
+        var set = "";
+        var idx =1;
         function start(){
-            var set = "";
-            var idx=1;
-            set = setInterval(function(){
-                idx++
-                if(idx ==4){
-                    idx =1;
-                }
-                var img = document.getElementById("ress");
-                img.src="../../가위바위보/1.png";
-            },1000);
-        }
+        
+        set = setInterval(function(){
+            idx++;
+            if(idx == 4){
+                idx = 1;
+            }
+            var img = document.getElementById("ress");
+            img.src="1.png";
+        },800);
+    }
  
         function doClick(object) { 
             var user = object.id;
             var com = Math.floor(Math.random()*3)+1;
            
-            console.log(com);
+            // console.log(com);
             if(user == "S"){
                 if(com == 1){
                     document.getElementById("result").innerHTML = "비겼습니다. <br>";
-                    var img = getElementById("ress");
-                    img.src = "1.png";
+                   
                 }
                 else if( com == 2){
                     document.getElementById("result").innerHTML = "졌습니다. <br>";
+                    var img = getElementById("ress");
+                    img.src = "2.png";
                 }
                 else if( com == 3 ){
                     document.getElementById("result").innerHTML = "이겼습니다. <br>";
+                    var img = getElementById("ress");
+                    img.src = "3.png";
                 } 
             }
             if(user == "R"){
