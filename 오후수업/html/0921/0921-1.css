@@ -1,0 +1,76 @@
+body{ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 브라우저마다 패딩값과 마진값이 잇으니 그걸 없애기 위함!! */
+.container{
+    margin: 30px auto; 
+    width: 90%;
+    height: 500px;
+}
+.title h1{
+    text-align: center;
+    padding-top: 50px;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.item{
+    border-radius: 10px;
+    background-color: #1f283b;
+    color: white;
+    padding: 2% 6%;
+    text-align: center;
+}
+.item p{
+    font-size: 22px;
+}
+.item h2{
+    font-size: 44px;
+    font-weight: 500px;
+    margin: 20px 0 40px;
+}
+.item span{
+    font-size: 18px;
+}
+.item ul{
+    text-align: left;
+    margin: 20px;
+    color: #ddd;
+}
+.item ul li{
+    margin: 15px 0;
+}
+.item button{
+    background-color: transparent;
+    /* transparent: 배경 색깔을 없앰 */
+    width: 100%;
+    padding: 14px 0;
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #e33058;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.item button:hover{
+    background-color: #e33058;
+}
+
+/* 
+margin 은 auto 가 있지만 padding 은 auto 가 없음.
+padding & margin : 10px ( 동,서,남,북)
+padding & margin : 10px (위 & 아래) 10px( 왼쪽 & 오른쪽)
+padding & margin : 10px (위) 10px (오른쪽& 왼쪽) 10px (아래)
+padding & margin : 10px (위) 10px (오른쪽) 10px (아래) 10px (왼쪽)
+
+문제1) margin : 10px 20px 30px
+margin-top:10px
+margin-right:20px
+margin-left:20px
+margin-bottom: 30px
+*/
+

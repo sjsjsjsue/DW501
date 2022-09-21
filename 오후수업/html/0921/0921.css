@@ -1,0 +1,82 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.wrap{
+    width: 100%;
+    height: 100vh;
+}
+.container{
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+}
+.h2{
+    width: 1000px;
+    height: 80px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    padding-top: 20px;
+}
+.startdiv{
+    width: 1000px;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+/* starter */
+.starter{
+    background-color: navy;
+    width: 300px;
+    height: 400px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+.header{
+    width: 300px;
+    height: 40px;
+    padding-top: 10px;
+}
+.center1{
+    width: 300px;
+    height: 70px;
+
+}
+/* 글씨 중간 안 옴 */
+.num{
+    font-size: 10px;
+    text-align: center;
+}
+span{
+    font-size: 30px;
+    font-weight: 800;
+}
+.centerul{
+    width: 300px;
+    height: 200px;
+    text-align: left;
+}
+.centerul{
+    width: 250px;
+    margin: 0 auto;
+}
+.centerul ul li{
+    padding: 3px;
+}
+.bt{
+    width: 300px;
+    height: 80px;
+}
+.bt input{
+    width: 100px;
+    height: 50px;
+    border: 1px solid red;
+    background-color: navy; /*버튼 자체에 줘야함!!*/ 
+    color: white;
+}
+.bt input:hover{
+    background-color: rgb(230, 19, 54);
+}

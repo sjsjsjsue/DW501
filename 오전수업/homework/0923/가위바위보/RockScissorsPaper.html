@@ -18,8 +18,8 @@
                         <img src="computer.png" alt="">
                     </div>
                     <div class="com_img">
-                        <div >
-                            <img src="1.png" alt="">
+                        <img src="1.png" alt="" id="ress" onclick="start()">
+                        <div>            
                         </div>
                     </div>
                 </div>
@@ -32,17 +32,21 @@
         <div class="user">
             <div class="img_text2">
                 <div class="rsp">
-                    <img src="1.png" class="u_rock" alt="" onclick="scis()">
-
+                    <button onclick="doClick(this)" id="S"><img src="1.png" class="u_scis" alt="" ></button>
                 </div>
                 <div class="rsp">
-                    <img src="2.png" class="u_rock" alt="" onclick="rock()">
+                    
+                    <button onclick="doClick(this)" id="R"><img src="2.png" class="u_rock" alt="" ></button>
                 </div>
                 <div class="rsp">
-                    <!-- <img src="3.png" class="u_scis" alt="" onclick="scis()"> -->
-                </div>
+                    <button onclick="doClick(this)" id="P"><img  src="3.png" class="u_paper" alt="" ></button>
+                </div><!--  -->
             </div>
             <div class="text"> <h1>USER</h1> </div>
+        </div>
+        <hr>
+        <div id="result">
+          결과
         </div>
     </div>
 </body>
@@ -65,23 +69,63 @@ var computer = Math.floor(Math.random()*3)+1;
         var scis = document.getElementsByClassName("u_scis"); //1
         var rock = document.getElementsByClassName("u_rock"); //2
         var paper = document.getElementsByClassName("u_paper"); //3
-
-        var com = Math.floor(Math.random()*3)+1;
-        var res = document.getElementsByClassName("result");
-        if( scis == com ){
-            var img = document.getElementsByClassName("result");
-            img.src = "1.png";
-            res.innerHTML = "비겼습니다. <br>"+img;
-        } if( scis > com){
-            var img = document.getElementsByClassName("result");
-            img.src = "2.png";
-            res.innerHTML = "졌습니다. <br>"+img;
-        } if( scis < com){
-            var img = document.getElementsByClassName("result");
-            img.src = "3.png";
-            res.innerHTML = "이겼습니다. <br>"+img;
+        
+        function start(){
+            var set = "";
+            var idx=1;
+            set = setInterval(function(){
+                idx++
+                if(idx ==4){
+                    idx =1;
+                }
+                var img = document.getElementById("ress");
+                img.src="../../가위바위보/1.png";
+            },1000);
         }
-    
+ 
+        function doClick(object) { 
+            var user = object.id;
+            var com = Math.floor(Math.random()*3)+1;
+           
+            console.log(com);
+            if(user == "S"){
+                if(com == 1){
+                    document.getElementById("result").innerHTML = "비겼습니다. <br>";
+                    var img = getElementById("ress");
+                    img.src = "1.png";
+                }
+                else if( com == 2){
+                    document.getElementById("result").innerHTML = "졌습니다. <br>";
+                }
+                else if( com == 3 ){
+                    document.getElementById("result").innerHTML = "이겼습니다. <br>";
+                } 
+            }
+            if(user == "R"){
+                if(com == 1){
+                    document.getElementById("result").innerHTML = "이겼습니다 <br>";
+                }
+                else if( com == 2){
+                    document.getElementById("result").innerHTML = "비겼습니다. <br>";
+                }
+                else if( com == 3 ){
+                    document.getElementById("result").innerHTML = "졌습니다.. <br>";
+                } 
+            }
+            if(user == "P"){
+                if(com == 1){
+                    document.getElementById("result").innerHTML = "졌습니다. <br>";
+                }
+                else if( com == 2){
+                    document.getElementById("result").innerHTML = "이겼습니다 <br>";
+                }
+                else if( com == 3 ){
+                    document.getElementById("result").innerHTML = "비겼습니다. <br>";
+                } 
+            }
+            
+        }
+          
 
   
 

@@ -46,6 +46,11 @@ body{
     height: 400px;
     margin: 20px auto;
 }
+.result{
+    width:1300px; 
+    height: 200px;
+     background-color: aqua;
+}
 .rsp{
     width: 300px;
     height: 300px;
