@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <input type="number" id="num" onkeydown="check()">
+        <input type="button" onclick="input()" value="입력">
+        <input type="button" onclick="complete()" value="입력완료">
+    </div>
+    <hr>
+    <div id="result"></div>
+
+    
+
+</body>
+
+<script>
+/*  문제 1. 반복문 사용
+    1~100까지 숫자 중 13의 배수만 출력하시오.
+    document.write()를 사용하여 출력.
+
+    var i=0;
+    while(i<=100){
+        if(i%13 == 0){
+            document.write(i+"<br>"");
+            i++
+        }
+    }
+
+*/
+/*
+    문제 2. 1~100까지 숫자 중 4 와 7의 공배수만 출력
+
+    1) var i=0;
+    while( i<=100){
+        if( i%4 == 0 && i%7 ==0){
+            document.write.(i+'<br>'')    
+        }
+        i++;
+    }
+
+    2) var k=0;
+    while(k<=100){
+        if( k% (4*7) == 0){
+            document.write(k+"<br>");    
+        } 
+        k++;
+    }
+*/
+
+/*
+    문제3.  1~100까지 숫자 중 24의 약수 출력  
+
+    var i=0;
+    while(i <= 100){
+        if(24%i == 0){ // 24를 i로 나눴을 때
+            document.write("24의 배수는 " + i + "<br>");
+        }
+        i++;
+    }
+
+쌤이 한 것 
+
+1) 24부터 약수 출력하고 싶을 때
+    var i = 24;
+    while(i>=1){
+        if(24%i == 0){
+            document.write(i+"<br>");
+        }
+        i--;
+    }
+2)  1부터 약수 출력하고 싶을 때
+    var i=1;
+    while ( i<=24){
+         if(24%i == 0){
+        document.write(i+"<br>");
+    }
+        i++;
+    }
+*/
+/*
+    문제 4. 124와 96의 공약수 출력하기
+
+    var i = 1;
+    while( i<124){
+        if( 124%i == 0 && 96%i == 0){
+            document.write("124 와 96의 공약수는 "+i+"입니다.<br>")
+        }
+        i++;
+    }
+
+    쌤이 한 것
+    var num1 = 124 , num2 = 96;
+    var i=1;
+    var small = num1 < num2 ? num1 : num2; // num1 과  num2 의 숫자가 정해지지 않은 경우 사용하려고 씀.
+    while(i <= small){
+        if( num1 % i == 0 && num2 % i == 0 ){
+            document.write(i+"<br>");
+        }
+        i++
+        }  
+  
+*/
+  
+/*
+    문제 4) 124와 155의 최대 공약수 출력하기
+
+    var num1 = 124;
+    var num2 = 155;
+    var i = 1; // 틀림 : 가장 큰 값에서 내리기 위해 num2를 사용; 
+    var big = num1 < num2 ? num1 : num2;
+    while(i<= big){ // 틀림 : 위에서 1이라는 수가 없기 때문에 사용해야함.  맞는 답 : while(i>=1)
+        if(num1%i ==0 && num2%i == 0){
+          document.write(i+"<br>"); 
+          break;
+        } 
+        i++; // 틀림: 큰 답을 먼저 사용하기 위해 i-- 사용 
+    } 
+
+    쌤이 한 것.
+    var num1= 124;
+    var num2 = 155;
+    var i = num1<num2 ? num1: num2; // 작은 숫자 찾기
+
+    while( i>=1){
+        if(num1%i ==0 && num2%i == 0){
+            document.write(i+"<br>"); // 공약수 31 / 1 이 나옴.
+            break; //최대공약수 1개만 나오기 위해 사용.
+        }
+        i--;
+    }
+
+*/
+
+// 베스킨라빈스31 game
+
+   var out = "user : "; // 전역변수
+   var num31 = 0; // 전역변수
+   var turn = true; // 전역변수
+   var cnt = 0; // 전역변수 <- 총 몇 번 입력했는지 확인하기 위해 사용.
+
+   function input(){
+        if(cnt == 3){
+            alert("3회 이상 입력했습니다. 입력완료를 눌러주세요.");
+            return; // 함수종료.
+        }
+        var num = document.querySelector("#num");
+        if(num.value <= num31 || (!turn && num.value > num31+1)){
+            alert("잘못입력했습니다. 패배하셨습니다.");
+            return;
+        } 
+        turn = true;
+        num31 = num.value;
+        // 편의 ui
+        num.value = "";
+        num.focus(); // input 태그 값 지우기.
+        cnt++;
+       
+        out += num31 + " "; // 식 안에 " " 있으면  숫자 형식이 문자형식으로 됨.(식 전체가)
+
+        if(num31 == 31){
+            complete();
+        }
+   }
+   function complete(){
+        var res = document.querySelector("#result");
+            res.innerHTML =out; // usr 출력
+
+        if(num31 ==31){
+            alert("user 패배");
+            return;
+        }
+    
+    // computer 숫자.
+    var com = Math.floor(Math.random()*3)+1;
+    out +="<br> com : ";
+    var i=1;
+    while( i<=com){
+        out += ++num31+ ""; // ++a 먼저 증가 | a++ 나중 증가
+        if( num31 == 31);break;
+         i++
+    }
+        res.innerHTML = out;
+        turn = false;
+
+        if(num31==31){
+            alert("컴퓨터 패배");
+        }
+        out += "<br> user : ";
+        cnt = 0;
+   }
+    function check(){
+        if(window.event.keyCode == 13){
+            input()
+        }
+        // alert(window.event.keyCode); // Javascript 로 사용자의 키입력을 감지하여 함수를 처리할 수 있습니다.
+    }
+
+   
+
+</script>
+</html>
