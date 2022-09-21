@@ -93,6 +93,19 @@ public class 자바기초 {
 		num2 = Integer.parseInt(num);
 //		문자에서 숫자로 변환할 때 Interger.parseInt()를 사용
 		System.out.println("문자에서 숫자로 변환된 값은 "+num2);
+		
+		int y = 200;
+		y = y * 100;
+		y = 10;
+		y= ++y;
+//		++x =>X에다가 +1하기
+//		y의 최종 값은? 11
+		
+		int z = 20;
+		z = 4;
+		z = 30;
+		z = z+z;
+//		z의 최종값은? 60
 	}
 
 }
