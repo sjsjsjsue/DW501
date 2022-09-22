@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0922</title>
+
+    <script>
+        /*
+        반복문
+        for ( 초기값; 조건식; 증감식)
+        */
+
+        /* 문제1.
+        랜덤값(랜덤 범위 1~100) (ramdom) 중에서 4의 배수만 출력하기 
+        *20번 반복(for문)하여 4의 배수만 출력
+
+        내가 한 것: ->랜덤값을 하지 못했음...
+            for(var i=1; i<=100; i++){
+                if(i%4 == 0){
+                    document.write(i+<br>);
+                }
+            }
+
+        종빈이가 도와줌:
+            for(var i=1; i<=20;i++){ //20번 반복
+                var k = Math.floor(Math.random()*100)+1; // 랜덤 값
+                if(k%4 == 0 ){
+                    document.write(k+"<br>"); //4의 배수 출력
+                }
+            }
+        
+        쌤이 한 것:
+            for( var i=1; i<=20; i++){ //숫자가 표현되는만큼 반복
+                var num = Math.floor(Math.random()*100)+1;
+                if(num %4 == 0){
+                    document.write(i+"<br>");
+                }
+            }
+        */
+
+         /* 문제2.
+         입력은 prompt 로 입력하기
+         반복회수 10번
+         랜덤범위 1~10
+         10번 숫자를 입력하여 입력한 숫자가 랜덤값과 일치하면 "지뢰 밟음. 사망"
+         일치하지 않으면 "회피성공" 출력하기
+         반복문이 한번 동작할 때마다 새로운 랜덤값 발생
+
+         내가 한 것:
+        for(var i=1; i<=10; i++){
+            var user = parseInt(prompt("숫자를 입력해주세요.")); // 종빈이가 도와줌(어디에다가 넣어야하는지 몰랐음.): 다 출력되기 위해 for 문 안에 있어야함.
+            var com = Math.floor(Math.random()*10)+1; 
+               if(user <1 || user>10 ){ // 지연이가 도와줌.. 1~10까지만 입력하기위해.
+                    document.write("1~10까지 입력해주세요.");
+                    break;
+                }
+                if( user != com){ // 종빈이가 도와줌 : user[i](x) why? 배열이 아니라 입력하는 것이기때문에
+                        document.write( "회피성공<br>");
+                }
+                else{
+                    document.write("지뢰 밟음. 사망했습니다.<br>"); 
+                    break; // 종빈이가 도와줌(추가): 게임이 끝나서 다른 게임으로 하기 위해
+                }
+            }
+
+         쌤이 한 것.:
+         1) for( var i=1; i<=10; i++){
+            var num = parseInt(prompt());
+            var r = Math.floor(Math.random()*10)+1;
+            if(num == r) document.write("지뢰..."+num+":"+r+"<br>");
+            else document.write("피했다."+num+ ":" + r+"<br>");
+
+         2) for( var i=1; i<=10; i++){
+            var num =0;
+            do{
+                num = parseInt(prompt());
+            }   while(!(num>=1 && num<=10));
+           
+            var r = Math.floor(Math.random()*10)+1;
+            if(num == r) document.write("지뢰..."+num+":"+r+"<br>");
+            else document.write("피했다."+num+ ":" + r+"<br>");
+          }
+         */
+
+        /*
+         for (var i=2; i<=9; i++){ //8번 반복
+            for(var k=1; k<=9; k++){ // 9번 반복
+                document.write(i+ "*" + k + "=" + i*k +"<br>");
+            }
+         }//총 72번 반복
+        
+       for(var i=1; i<=5; i++){ // 5번 반복
+        for(var k=1; k<=i ;k++){ // i번 반복
+            document.write("*");
+        }
+        document.write("<br>");
+       } 
+
+       문제. *****, *****,***,**,* 를 구하시오
+
+       내가 한 답:
+        for (var i=1; i<=5; i++){
+                for(var k=i; k<=5 ; k++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+
+        선생님이 한 답: 
+        for(var i=1; i<=5;i++){
+            for(var k=1; k<=6-i; k++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+       */ 
+       
+        /*
+        비밀번호 찾기
+         hint) for 문으로 만드시오(이중...)
+         1. 비밀번호는 총 4자리 숫자다.
+         2. 비밀번호 각 자리는 1~9 중 하나이다.
+         3. 비밀번호에 중복은 없다. ex) 2239 1122 x / 1234 5678 o
+         4. 4자리 숫자 중 첫번째 숫자는 세번째 숫자보다 7 크다. ex) 8_1_
+         5. 두번째 숫자는 네번째 숫자보다 적다.  ex) _1_2
+         6. 비밀번호를 역순으로 한 숫자와 비밀번호를 더하면 16566 이다. 
+         7. 위 조건에 맞는 비밀번호 4자리를 출력하시오.
+
+         내가 한 답: 
+         for(var i=1; i<=9; i++){ // 첫번째 숫자
+            if(i>7){
+                for(var k=1;k<=9;k++){ // 두번째 숫자
+                    if(){
+                        for(var j=1; j<=9; j++){ //세번재 숫자
+                            if(k<i+7){
+                                for(var h=1; h<=9;h++){ //네번째 숫자
+                                    if(){
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+        몰겟/..
+    선생님이 한 답:
+
+          for(var a=1; a<=9; a++){ //첫번째 숫자
+            for(var b=1;b<=9;b++){ //두번째 숫자
+                for(var c=1;c<=9; c++){ //세번째 숫자
+                    for(var d=1;d<=9; d++){ // 네번째 숫자
+                        if (a!= b && a!=c && a!=d && b!=c && b!=d && c!=d){ // 중복이 아니다
+                            if(a == c+7){ // 첫번째 숫자가 세번째 숫자보다 7 크다.
+                                if(b < d){ //두번째 숫자가 네번재 숫자보다 적다.
+                                    var e = (a*1000)+(b*100)+(c*10)+d; // 비밀번호 값
+                                    var f = (d*1000)+(c*100)+(b*10)+a; // 역순 값
+                                    if( e+f == 16566){ // 비밀번호 값과 역순 값이 16566이다.
+                                        document.write("비밀번호는"+e +"입니다.");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+         }
+         // if 는 for 문 마지막에 써야 실행이 가능!
+        */ 
+
+        
+        
+       
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
