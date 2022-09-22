@@ -113,7 +113,7 @@
 
     var num1 = 124;
     var num2 = 155;
-    var i = 1; // 틀림 : 가장 큰 값에서 내리기 위해 num2를 사용; 
+    var i = 1; // 틀림 : 가장 큰 값에서 내리기 위해 num2를 사용;  맞는답: var i= num2
     var big = num1 < num2 ? num1 : num2;
     while(i<= big){ // 틀림 : 위에서 1이라는 수가 없기 때문에 사용해야함.  맞는 답 : while(i>=1)
         if(num1%i ==0 && num2%i == 0){
