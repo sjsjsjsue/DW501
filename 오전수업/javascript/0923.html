@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0923</title>
+</head>
+<body>
+    
+    
+</body>
+
+<script>
+/*
+do ~ while (참이든 거짓이든 둘 다  실행)
+초기값 -> 반복 내용 실행 -> 증감식 -> 조건식 -> 내용 -> 증감식 -> 조건식
+
+for , while ( 참만 실행 )
+초기값 -> 조건식 -> 내용 -> 증감식 -> 조건식 -> 내용 -> 증감식 -> 조건식
+*/
+
+/*
+var i=10;
+while(i<10){
+    alert("while문");
+    i++;
+} //거짓이기 때문에 아무것도 뜨지 않음
+
+var k=10;
+do{
+alert("do while");
+}while(i<10); // 거짓이나 실행이 됨
+//***do while 뒤에 조건식이 들어가면 무조건 ; (세미콜론) 붙여야함!!!!!!!!!!!!!!!!!!
+
+var num =0;
+do{
+    alert("1~5 중에서 입력하시오")
+    num = parseInt(prompt());
+}while(!(num>=1 && num<=5)); 
+document.write(num);
+
+
+var num1 = parseInt(prompt("1~5 중에서 입력하시오."));
+while( num1<1 || num1>5){
+    num1 = parseInt(prompt());
+}
+document.write(num1);
+*/
+
+/*
+변수 - 단일 값을 저장하기 위한 메모리 공간.
+    - 변수 이름 하나 당 한 개씩만 가능)
+ex) var num = 10, 20;(x)  | var num = 10;(o)  num = "문자열";(O)
+배열 - n개의 데이터를 저장하기 위한 메모리 공간.
+    - 배열의 하나하나는 변수와 같다.  변수 이름 하나 당 n개씩 가능.
+    - 배열의 인덱스는 0 부터 시작...
+    배열은 인덱스로 표현한다. 인덱스는 0부터 시작이다. (저장한 순서대로 차례대로 나옴?)
+
+
+*/
+var arr = new Array(); // 배열 만드는 첫번째 방법
+var arr2 = []; // 배열 만드는 2번째 방법
+var arr3 = [ 1,10,32,54]; // 배열 만드는 3번째 방법
+
+arr.push(10); // 데이터 저장
+arr.push(30);
+arr.push(2323);
+
+// alert(arr); // 결과 : 10,30,2323
+alert(arr[0]); // 결과 : 10 <= 배열 1번째꺼 출력하고싶을 때 연산자에 " [] "를 붙여야함
+
+
+
+
+
+
+
+</script>
+</html>
