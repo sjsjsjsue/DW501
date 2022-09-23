@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Scissors Paper Jame </title>
+    <title>Rock Scissors Paper Game </title>
 
     <link rel="stylesheet" href="RockScissorsPaper.css">
    
 </head>
-<body>
+<body onload="start()"> <!-- 브라우저가 시작되면 돌아감  -->
     <div class="wrap">
         <div class="computer">
             <div class="img_text">
@@ -56,12 +56,14 @@
         var scis = document.getElementsByClassName("u_scis"); //1
         var rock = document.getElementsByClassName("u_rock"); //2
         var paper = document.getElementsByClassName("u_paper"); //3
+        
 
         var idx =1;
         var set = "";
-        var resp_count = 0; //here
-        // var interval = setInterval(doClick, 800);
-        window.onload = function start(){ // 눌렀을 때 돌아감
+        // var resp_count = 0; //here
+        
+        var setTime = 100;
+        function start(){ // start() 함수 시작
             set = setInterval(function(){
                 idx++;
                 if(idx == 4){
@@ -69,55 +71,82 @@
                 }
                 var img = document.getElementById("ress");
                 img.src = idx+".png";
-            }, 100);
-        }
+            }, setTime); //0.1 초만에 돌아감
+        } //이해 ㅇㅇ
     
         function doClick(object) { 
-            var user = object.id;
-            var com = Math.floor(Math.random()*3)+1;
-           
+            var user = object.id; //doClick의 id를 불러오겠다.
+            var com = Math.floor(Math.random()*3)+1; // 컴퓨터의 랜덤함수
+            clearInterval(set); //클릭할 때 이미지 멈춤
+        
+
+            var ress = document.getElementById("ress"); //ress 불러오겠다.
             // console.log(com);
             if(user == "S"){
                 if(com == 1){
-                    document.getElementById("result").innerHTML = "비겼습니다. <br>";
-                    ress.innerHTML = "1.png"; //here
-                    ress.resp_count++;
+                    document.getElementById("result").innerHTML = "비겼습니다. <br>"; // 컴퓨터가 1일 때 결과값 나옴
+                    ress.src = "1.png"; // 클릭했을 때 ress 에 이미지 나오기
+                    // ress.resp_count++;
                    
                 }
                 else if( com == 2){
                     document.getElementById("result").innerHTML = "졌습니다. <br>";
-                    ress.innerHTML = "2.png"; //here
-                    ress.resp_count++;
+                    ress.src = "2.png"; //here
+                    // ress.resp_count++;
                 }
                 else if( com == 3 ){
                     document.getElementById("result").innerHTML = "이겼습니다. <br>";
-                    ress.innerHTML = "3.png"; //here
-                    ress.resp_count++;
-                } clearInterval(set); //here
+                    ress.src = "3.png"; //here
+                    // ress.resp_count++;
+                } 
             }
             
             if(user == "R"){
                 if(com == 1){
                     document.getElementById("result").innerHTML = "이겼습니다 <br>";
+                    ress.src = "1.png"; //here
+                    // ress.resp_count++;
                 }
                 else if( com == 2){
                     document.getElementById("result").innerHTML = "비겼습니다. <br>";
+                    ress.src = "2.png"; //here
+                    // ress.resp_count++;
                 }
                 else if( com == 3 ){
                     document.getElementById("result").innerHTML = "졌습니다.. <br>";
+                    ress.src = "3.png"; //here
+                    // ress.resp_count++;
                 } 
             }
             if(user == "P"){
                 if(com == 1){
                     document.getElementById("result").innerHTML = "졌습니다. <br>";
+                    ress.innerHTML = "1.png"; //here
+                    // ress.resp_count++;
                 }
                 else if( com == 2){
                     document.getElementById("result").innerHTML = "이겼습니다 <br>";
+                    ress.innerHTML = "2.png"; //here
+                    // ress.resp_count++;
                 }
                 else if( com == 3 ){
                     document.getElementById("result").innerHTML = "비겼습니다. <br>";
+                    ress.innerHTML = "3.png"; //here
+                    // ress.resp_count++;
                 } 
             }
+
+
+            // set = setInterval(function(){ 
+            //     idx++;
+            //     if(idx == 4){
+            //         idx=1;
+            //     }
+            //     var img = document.getElementById("ress");
+            //     img.src = idx+".png";
+            // }, 1000); 
+            // clearInterval(set);
+            setTimeout(start,1000); // 다시 돌아감
             
         }
           
