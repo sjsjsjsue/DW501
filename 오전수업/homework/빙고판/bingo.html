@@ -30,12 +30,12 @@
             text-align: center;
             padding: 20px;
         }
-        /* 숫자 중간에 안옴... 완전 중간! 어디에다 줘야할지 모르겠음! */
         .result{
             width: 200px;
-            background-color: black;
-            color: white;
+            /* background-color: rgb(49, 116, 49); */
+            color: lightslategray;
             text-align: center;
+            font-size: 25px;
         }
         .bingo_wrap{
             width: 540px;
@@ -52,6 +52,8 @@
             background-color: white;
             display: flex;
             cursor: pointer;
+            font-size: 25px;
+            font-weight: 800;
         }
         .bingo_col{
             width: 100px;
@@ -66,8 +68,9 @@
             width: 100px;
             height: 100px;
             border-bottom: 1px solid black;
-            text-align: center;
-            /* padding-top: 10px; */
+            text-align: center;  /* text-aline : 글씨가 가로 중간에 올 수 있다.  */
+            line-height: 100px;     
+            /* line-height : 텍스트 줄 사이의 거리를 설정하는데 사용 */
         }
         .bingo_row:nth-child(5){
             border-bottom: 0;
@@ -78,7 +81,7 @@
         }
     </style>
 </head>
-<body onload="start()">
+<body onload="shuffle()">
     
     <div class="container">
         <div class="header">
@@ -89,39 +92,39 @@
         <div class="bingo_wrap">
             <div class="bingo_board">
                 <div class="bingo_col">  <!-- 빙고 세로줄 (1) -->
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
+                    <div class="bingo_row" id="bingo_row1"></div>
+                    <div class="bingo_row" id="bingo_row2"></div>
+                    <div class="bingo_row" id="bingo_row3"></div>
+                    <div class="bingo_row" id="bingo_row4"></div>
+                    <div class="bingo_row" id="bingo_row5"></div>
                 </div>
                 <div class="bingo_col"><!-- 빙고 세로줄 (2) -->
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
+                    <div class="bingo_row" id="bingo_row6"></div>
+                    <div class="bingo_row" id="bingo_row7"></div>
+                    <div class="bingo_row" id="bingo_row8"></div>
+                    <div class="bingo_row" id="bingo_row9"></div>
+                    <div class="bingo_row" id="bingo_row10"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (3) -->
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
+                    <div class="bingo_row" id="bingo_row11"></div>
+                    <div class="bingo_row" id="bingo_row12"></div>
+                    <div class="bingo_row" id="bingo_row13"></div>
+                    <div class="bingo_row" id="bingo_row14"></div>
+                    <div class="bingo_row" id="bingo_row15"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (4) -->
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
+                    <div class="bingo_row" id="bingo_row16"></div>
+                    <div class="bingo_row" id="bingo_row17"></div>
+                    <div class="bingo_row" id="bingo_row18"></div>
+                    <div class="bingo_row" id="bingo_row19"></div>
+                    <div class="bingo_row" id="bingo_row20"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (5) -->
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
-                    <div class="bingo_row"></div>
+                    <div class="bingo_row" id="bingo_row21"></div>
+                    <div class="bingo_row" id="bingo_row22"></div>
+                    <div class="bingo_row" id="bingo_row23"></div>
+                    <div class="bingo_row" id="bingo_row24"></div>
+                    <div class="bingo_row" id="bingo_row25"></div>
                 </div>
             </div>
         </div>
@@ -139,16 +142,22 @@
 4. 1줄 이면 승리
 */
 
-// 브라우저를 클릭하면 번호가 나온다.
-function start(){
-    var array = new array[100];
 
-    for(var i=0; i<=100;i++){
-        array[i] = array[i]+1;
-    }
 
-    var user = Math.floor(Math.random()*100)+1;
+
+function shuffle(){
+
+for( var i=1; i<26;i++){
+    var bin = document.getElementById("bingo_row"+i);
+    var bin_ran = Math.floor(Math.random()*100)+1;
+
+   bin.innerHTML = bin_ran;
 }
+    
+}
+    // var arr2 = [];
+    // var tmp = 0; 
+    // var bingo = [];
 
 
 </script>
