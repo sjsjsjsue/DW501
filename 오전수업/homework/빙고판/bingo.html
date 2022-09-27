@@ -80,8 +80,10 @@
             color: white;
         }
     </style>
+
 </head>
-<body onload="shuffle()">
+
+<body>
     
     <div class="container">
         <div class="header">
@@ -89,42 +91,42 @@
             <div class="result" id="result">결과</div> <!--결과 -->
         </div>
         <!-- 빙고 보드 -->
-        <div class="bingo_wrap">
+        <div class="bingo_wrap" >
             <div class="bingo_board">
                 <div class="bingo_col">  <!-- 빙고 세로줄 (1) -->
-                    <div class="bingo_row" id="bingo_row1"></div>
-                    <div class="bingo_row" id="bingo_row2"></div>
-                    <div class="bingo_row" id="bingo_row3"></div>
-                    <div class="bingo_row" id="bingo_row4"></div>
-                    <div class="bingo_row" id="bingo_row5"></div>
+                    <div class="bingo_row" id="bingo_row1" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row2" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row3" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row4" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row5" onclick="ClickBingo()"></div>
                 </div>
                 <div class="bingo_col"><!-- 빙고 세로줄 (2) -->
-                    <div class="bingo_row" id="bingo_row6"></div>
-                    <div class="bingo_row" id="bingo_row7"></div>
-                    <div class="bingo_row" id="bingo_row8"></div>
-                    <div class="bingo_row" id="bingo_row9"></div>
-                    <div class="bingo_row" id="bingo_row10"></div>
+                    <div class="bingo_row" id="bingo_row6" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row7" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row8" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row9" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row10"onclick="ClickBingo()"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (3) -->
-                    <div class="bingo_row" id="bingo_row11"></div>
-                    <div class="bingo_row" id="bingo_row12"></div>
-                    <div class="bingo_row" id="bingo_row13"></div>
-                    <div class="bingo_row" id="bingo_row14"></div>
-                    <div class="bingo_row" id="bingo_row15"></div>
+                    <div class="bingo_row" id="bingo_row11" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row12" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row13" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row14" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row15" onclick="ClickBingo()"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (4) -->
-                    <div class="bingo_row" id="bingo_row16"></div>
-                    <div class="bingo_row" id="bingo_row17"></div>
-                    <div class="bingo_row" id="bingo_row18"></div>
-                    <div class="bingo_row" id="bingo_row19"></div>
-                    <div class="bingo_row" id="bingo_row20"></div>
+                    <div class="bingo_row" id="bingo_row16" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row17" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row18" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row19" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row20" onclick="ClickBingo()"></div>
                 </div>
                 <div class="bingo_col"> <!-- 빙고 세로줄 (5) -->
-                    <div class="bingo_row" id="bingo_row21"></div>
-                    <div class="bingo_row" id="bingo_row22"></div>
-                    <div class="bingo_row" id="bingo_row23"></div>
-                    <div class="bingo_row" id="bingo_row24"></div>
-                    <div class="bingo_row" id="bingo_row25"></div>
+                    <div class="bingo_row" id="bingo_row21" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row22" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row23" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row24" onclick="ClickBingo()"></div>
+                    <div class="bingo_row" id="bingo_row25" onclick="ClickBingo()"></div>
                 </div>
             </div>
         </div>
@@ -144,20 +146,21 @@
 
 
 
+//바로 랜덤함수가 나오려면 function을 안적어도 됨!
+// 1. 번호가 나온다.
 
-function shuffle(){
-
-for( var i=1; i<26;i++){
+for( var i=1; i<26;i++){ // 번호가 body에 나온다.
     var bin = document.getElementById("bingo_row"+i);
-    var bin_ran = Math.floor(Math.random()*100)+1;
-
-   bin.innerHTML = bin_ran;
-}
+    var bin_ran = Math.floor(Math.random()*100)+1; //랜덤함수
     
+    bin.innerHTML = bin_ran;
 }
-    // var arr2 = [];
-    // var tmp = 0; 
-    // var bingo = [];
+var array = new Array(25);
+for(var i=0; i<array.length; i++){
+    array[i] = i+1;
+}
+
+   
 
 
 </script>
