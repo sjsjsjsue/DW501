@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JS.array2.html </title>
+</head>
+<body>
+    
+    <div>
+        <input type="file" id="docread">
+        <!-- input-file : 파일을 바로 열 수 있음 -->
+    </div>
+</body>
+<script>
+
+window.onload = function(){
+    // onload : 브라우저에 출력된 이후 뜻 함.
+    // window.onload : 브라우저에 모든 html 이 출력된 이후 출력.
+    document.getElementById("docread").addEventListener("change",readFile);
+    // input 태그에 변화가 생기면 readFile 을 실행하겠다.
+}
+async function readFile(e){
+    var file = e.target.files[0];
+    // input 태그에서 선택한 파일 객체
+    if(!file){ // 파일객체 존재 유무
+        return; // 존재하지 않으면 종료
+    }
+  
+    var text = await file.text();
+    
+    text = text.split('\n');
+    document.write(text[0]+"<br>");
+    document.write(text[1]+"<br>");
+
+    /*
+    var reader = new FileReader() // 파일 불러오기 위한 reader 객체 생성
+    reader.onload = function(e){
+        filedata = e.target.result;
+    };
+    alert(reader.readAsText(file,'utf-8')); // 리더기를 통해 file에 담겨있는 내용 가져오기.
+    */
+}  
+
+
+</script>
+</html>

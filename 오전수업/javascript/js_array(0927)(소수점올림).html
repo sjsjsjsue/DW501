@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js_array.html</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="quan" placeholder="고구마  수량 입력">
+        <button onclick="enroll()">입력</button>
+    </div>
+    <div id="result"></div>
+</body>
+
+<script>
+/*
+var apple_box = new Array();
+apple_box.push(68); // 값을 주기 위해 push를 적음
+apple_box.push(65);
+apple_box.push(61);
+apple_box.push(69);
+apple_box.push(66);
+//마지막 index(length) 는 4!
+
+// apple_box[0]; // == 68
+for( var i=0; i<5; i++){
+    document.write(apple_box[i]+"<br>");
+}
+*/
+
+/*
+// 사과상자에 사과가 평균 몇개 담겨있느지 확인.
+
+var  total_apple = 0;
+for( var i=0; i<apple_box.length; i++){
+    total_apple = total_apple + apple_box[i];
+}
+document.write("사과상자 평균 갯수 : " + total_apple / apple_box.length +"<br>");
+
+ 각 사과상자에서 사과상자 평균치와 비교했을 때 몇 개 차이가 있는지 출력.
+    각 사과상자 평균값은 정수로 구하여 사용.
+    출력 예시) 1번 사과상자 : 3개
+
+ var res = total_apple / apple_box.length;
+    res = Math.floor(res);  //Math.floor 은 내림
+
+    /* 소수점
+    Math.round() : 반올림..
+    Math.floor() : 내림.
+    Math.ceil() : 올림.
+    */
+/*
+    //1번째
+    document.write("사과 상자 평균값은 "+res+"개 <br>");
+    document.write("1번 사과상자 : " + (apple_box[0]-res) + "개<br>");
+    document.write("2번 사과상자 : " + (apple_box[1]-res) + "개<br>");
+    document.write("3번 사과상자 : " + (apple_box[2]-res) + "개<br>");
+    document.write("4번 사과상자 : " + (apple_box[3]-res) + "개<br>");
+    document.write("5번 사과상자 : " + (apple_box[4]-res) + "개<br>");
+
+    //2번째
+    for( var i=0;i<apple_box.length; i++){
+        var x = apple_box[i] - res;
+        document.write((i+1)+"번째 상자 : " + x +"개<br>");
+    } 
+
+    var ave = parseInt(total_apple / apple_box.length); //parseInt : 정수로 변환(소수점 버림)
+    for(var i=0; i<5; i++){
+        document.write((i+1)+"번째 상자 : "+(apple_box[i]-ave)+"개<br>" );
+    }
+*/
+    /*
+    1상자에 들어가는 고구마 수량 입력하기
+    고구마 1개의 무게는 200g
+    1000g = 1kg
+    고구마 수량을 입력하여 result 에 1번째 고구마 상자 ?kg  출력하기
+   
+
+    function enroll(){
+        var count = new Array(); 
+        var weight = 200; // 고구마 1개의 무게는 200g
+        var box = 0; //고구마 박스
+        var ress = document.getElementById(result); // 결과를 불러오겠다.
+        for( var i=1; i<count.length; i++){
+            ress = weight * count[i]; // 고구마 수량 * 무게
+            
+        }
+
+        ress.innerHTML(ress);
+    } 
+ */
+
+    var sweet_quan = new Array();
+    var sweet_kg = new Array();
+    function enroll(){
+        var quan = document.getElementById('quan').value;
+        var num = parseInt(quan); // 입력한 고구마수량
+        sweet_quan.push(num); // 배열 입력
+        let kg = (num *200)/1000; // 고구마 한 상자 무게(kg)
+        sweet_kg.push(kg);
+
+        var result = document.getElementById("result");
+        var out = "";
+        for(var i=0; i<sweet_quan.length;i++){
+            out = (i+1) +"번째 고구마 상자" + sweet_kg[i]+ "kg("+sweet_quan[i]+"개)<br>";
+            
+        }
+        result.innerHTML = out;
+    }
+
+       
+    
+
+</script>
+</html>
