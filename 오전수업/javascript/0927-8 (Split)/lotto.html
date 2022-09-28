@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="file" id="docread">
+        <div>
+            <input type="button" onclick="search()" value="전체리스트">
+            <ul>
+                <li>회차</li>
+                <li>발표일</li>
+                <li>번호1</li>
+                <li>번호2</li>
+                <li>번호3</li>
+                <li>번호4</li>
+                <li>번호5</li>
+                <li>번호6</li>
+                <li>보너스</li>
+            </ul>
+            <div id="lotto"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // \t : tab
+    /* 
+    lotto.txt 파일 오픈하여 화면에 출력하기
+    출력형태는
+    회차/ 발표일/ 번호1/ 번호2/ 번호3/ 번호4/ 번호5/ 번호6
+    파일 안에 있는 내용을 위 처럼 구분하여 출력하기
+    ul 또는 table 태그 사용
+    */
+   window.onload = function(){
+    document.getElementById("docread").addEventListener("change",readFile);
+   }
+   async function readFile(e){
+    var file = e.target.files[0];
+    if(!file){
+        return;
+    }
+    var text = await file.text();
+    list = text.split("\n");
+   }
+   var list = new Array();
+    
+   function search(){
+    var out = "";
+    for( let i in list){
+        out+="<br>"+list[i]+"<br>";
+    }
+    document.getElementById("lotto").innerHTML = out;
+   }
+</script>
+</html>

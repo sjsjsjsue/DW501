@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JS.array2.html </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        .srh_wrap{
+            display: flex;
+            margin-top: 10px;
+            border: 1px solid black;
+            width: 200px;
+        }
+        .srh_wrap input{
+            border: 0;
+            outline: none;
+            /* outline : 클릭했을 때 border가 보이는 것 */
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div>
+        <input type="file" id="docread">
+        <!-- input-file : 파일을 바로 열 수 있음 -->
+    </div>
+    <div>
+        <input type="button" onclick="out_list()" value="전체리스트">
+        <div class="srh_wrap">
+            <input type="search" id="word">
+            <span onclick="search()"><i class="bi bi-search"></i></span>
+        </div>
+    </div>
+    <div id="list"></div>
+</body>
+
+<script>
+
+    window.onload = function(){
+        // onload : 브라우저에 출력된 이후 뜻 함.
+        // window.onload : 브라우저에 모든 html 이 출력된 이후 출력.
+        document.getElementById("docread").addEventListener("change",readFile);
+        // input 태그에 변화가 생기면 readFile 을 실행하겠다.
+    }
+    async function readFile(e){
+        var file = e.target.files[0];
+        // input 태그에서 선택한 파일 객체
+        if(!file){ // 파일객체 존재 유무
+            return; // 존재하지 않으면 종료
+        }
+      
+        var text = await file.text();
+        list = text.split("\n"); 
+        //async ~ list 까지 불러오는거라 중요하지 않음/. 나중에 필요하면 복붙하셈
+        //javascript는 전역변수(var i)또는 지역변수(var(x) i) 가 아래 있어도 그 변수를 먼저 읽기 때문에 아래 있어도 상관없음.
+        /*
+        split() : 문자열 분할
+        \n : enter 의 역할
+        index 는 0부터 시작!
+       
+        // document.write(text); //전부 다 출력이지만 가로로 출력.
+        text = text.split('\n');
+        
+        // document.write(text[0]+"<br>");
+        // document.write(text[7]+"<br>"); //한개씩 출력
+        // for( var i=0; i<text.length; i++){
+        //     document.write(text[i]+"<br>");
+        // } // 한 번에 출력
+        */
+
+      
+        /*
+        var reader = new FileReader() // 파일 불러오기 위한 reader 객체 생성
+        reader.onload = function(e){
+            filedata = e.target.result;
+        };
+        alert(reader.readAsText(file,'utf-8')); // 리더기를 통해 file에 담겨있는 내용 가져오기.
+        */
+    }  
+    var list = new Array();
+    
+    function out_list(){
+        var out=""; //출력할 내용을 위해 만들었음. for 문 쓸 때 굳이 필요 없음..
+        for(let i in list){//배열을 위한 for 문(var or let 아무거나 사용가능)
+            out += list[i]+"<br>";
+        }
+        document.getElementById("list").innerHTML = out;
+        // == document.querySelector(#list).innerHTML = out;
+    }
+    function search(){
+        var word = document.getElementById("word");
+        var name = word.value; // 검색어
+
+        for(let i in list){
+           /* let temp = list[i].split(" "); // 띄어쓰기 기준으로 문자열 분할. 
+           
+            if(temp[0] == name){ */
+                alert(list[i].indexOf(name)); 
+                // indexOf(찾을 문자열) : 문자열 안에서 입력한 문자열과 일치하는 위치를 찾아 인덱스를 반환.
+                // ex) "abcd".indexOf("bc") -> 결과 : 1 <- index 기준
+            if(list[i].indexOf(name)!= -1){
+                document.getElementById("list").innerHTML = list[i];
+                return; // 함수 종료
+            }
+        }
+        document.getElementById("list").innerHTML  = "검색결과 일치하는 정보가 없습니다."
+    } // search 함수 종료
+
+    </script>
+
+</html>
