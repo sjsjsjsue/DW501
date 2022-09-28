@@ -140,7 +140,6 @@
 빙고의 기능 정의
 1. 번호가 나온다.
 2. 번호가 나오면 숫자가 색칠되고.
-3. 색칠된 숫자는 이 판에서는 나오지 않는다. (계속해서 다른 번호가 나온다.)
 4. 1줄 이면 승리
 */
 
@@ -148,17 +147,19 @@
 
 //바로 랜덤함수가 나오려면 function을 안적어도 됨!
 // 1. 번호가 나온다.
+var array = new Array(25);
+for(var i=0; i<array.length; i++){
+    array[i] = i+1;
+}
 
-for( var i=1; i<26;i++){ // 번호가 body에 나온다.
+for( var i=1; i<=array.length;i++){ // 번호가 body에 나온다.
     var bin = document.getElementById("bingo_row"+i);
     var bin_ran = Math.floor(Math.random()*100)+1; //랜덤함수
     
     bin.innerHTML = bin_ran;
 }
-var array = new Array(25);
-for(var i=0; i<array.length; i++){
-    array[i] = i+1;
-}
+
+
 
    
 
