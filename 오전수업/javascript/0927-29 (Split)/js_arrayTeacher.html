@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //   \t ->tab
+      // lotto.txt 파일 오픈하여  화면에 출력하기
+      // 출력 형태는
+      //  회차    발표일   번호1  번호2   번호3   번호4  번호5   번호6
+
+      //   파일안에 있는 내용을 위 처럼 구분하여 출력하기
+      //  ul 또는 table 태그 사용 하면 됨
+
+      var list = new Array(); //전역
+      window.onload = function () {
+        document.getElementById('docread').addEventListener('change', readFile);
+      };
+      async function readFile(e) {
+        var file = e.target.files[0]; // input 태그에서 선택한 파일 객체
+        if (!file) {
+          return; // 존재하지않으면 종료
+        }
+
+        var text = await file.text();
+        list = text.split('\n');
+        make_list();
+      }
+      function make_list() {
+        var out = '<table>';
+
+        out += '<tr> <th>회차</th><th>발표일</th><th>번호1</th><th>번호2</th>';
+        out += '<th>번호3</th><th>번호4</th><th>번호5</th><th>번호6</th></tr>';
+
+        for (var i in list) {
+          out += '<tr>';
+          let temp = list[i].split('\t');
+          for (var k in temp) {
+            out += '<td> ' + temp[k] + '</td>';
+          }
+          out += '</tr>';
+        }
+        out += '</table>';
+        document.getElementById('list').innerHTML = out;
+      }
+    </script>
+    <style>
+      table tr td {
+        border: 1px solid black;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="file" id="docread" />
+    </div>
+
+    <div id="list"></div>
+  </body>
+</html>

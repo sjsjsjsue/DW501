@@ -16,6 +16,7 @@
 <body>
     <div>
         <input type="file" name="" id="docread">
+        <button type="button" onclick="appear()">출현횟수</button>
     </div>
     <div id="list"></div>
 </body>
@@ -52,6 +53,10 @@
             }
         out +="</table>";
         document.getElementById("list").innerHTML = out;
+    }
+
+    function appear(){
+        // 당첨번호 인덱스 시작인덱스 2 list[0].split("\t")[2]
     }
 </script>
 </html>
