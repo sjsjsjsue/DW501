@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table tr td{
+            
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="file" name="" id="docread">
+        <button type="button" onclick="appear()">출현횟수</button>
+    </div>
+    <!--문제.
+        가장 최근 당첨 회차부터 input 태그에 입력한 숫자만큼 중에서 0번 출현한 숫자, 
+        또는 15번 이상 출현한 숫자를 찾아 출력
+        ex) input 입력 숫자 10
+            1034회부터 1025회차까지 로또당첨 출현횟수 구하기
+            이 중에서 0번 나온 숫자 또는 15번 이상 나온 숫자 찾아 출력
+    -->
+    <div>
+        <input type="number" id="cnt">
+        <button type="button" onclick="high_low()">출력</button>
+    </div>
+    <div id="list"></div>
+</body>
+
+<script>
+    var list = new Array();
+    window.onload = function(){
+        // onload : 브라우저에 출력된 이후 뜻 함.
+        // window.onload : 브라우저에 모든 html 이 출력된 이후 출력.
+        document.getElementById("docread").addEventListener("change",readFile);
+        // input 태그에 변화가 생기면 readFile 을 실행하겠다.
+    }
+    async function readFile(e){
+        var file = e.target.files[0];
+        // input 태그에서 선택한 파일 객체
+        if(!file){ // 파일객체 존재 유무
+            return; // 존재하지 않으면 종료
+        }
+      
+        var text = await file.text();
+        list = text.split("\n"); 
+        make_list();
+    }
+    function make_list(){
+        var out = "<table>";
+            out+= "<tr><td>회차</td> <td>발표일</td> <td>번호1</td> <td>번호2</td> <td>번호3</td> <td>번호4</td> <td>번호5</td> <td>번호6</td> </tr>"
+            for(var i in list){
+                out += "<tr>";
+                    let temp = list[i].split("\t");
+                    for(var k in temp){
+                        out += "<td>"+temp[k]+"</td>";
+                    }
+                out +="</tr>";
+            }
+        out +="</table>";
+        document.getElementById("list").innerHTML = out;
+    }
+
+    function appear(){
+        // 당첨번호 인덱스 시작인덱스 2 list[0].split("\t")[2]
+        var number = new Array(45);
+
+        number.fill(0); // 배열 45개 공간 0으로 초기화
+        // number[0] : 1 / number[1] : 2 / number[2] : 3 ...
+        for(var i in list){ // i 변수에 배열의 인덱스가 차례로 대입
+            var temp = list[i].split("\t"); //split 은 문자열에만 사용 가능.
+            // list[0] : 회차 / list[1] : 발표일 / list[2] : 번호1 ...
+            for( var k=2; k<temp.length;k++){ // == var k in temp+2
+                // 왜 +2를 쓸까...? 번호 1을 쓰기위해
+            number[parseInt(temp[k])-1]++; // 중복문 제거
+        }
+        }
+
+        var view = "";
+        // (a +=23) == (a = a+23)
+        for( var i in number){
+            view += "<div>"+(parseInt(i)+1)+ "->" + number[i] + "개</div>";
+            document.getElementById("list").innerHTML = view;
+        }
+    }
+    // 문제 .
+    function high_low(){
+    /*    var cnt = document.getElementById("cnt");
+        var num = new Array(45);
+        for( var i in list){
+            var tem = list[i].split("\t");
+            for( var k in temp+2){
+                num[parseInt(tem[k]-1)]++;
+            }
+        }
+        */
+
+        var cnt = document.getElementById("cnt").value;
+        var number = new Array(45);
+        number.fill(0);
+        for( var i=0; i< cnt;i++){
+            var temp = list[i].split("\t");
+            for(var k=2; k<temp.length;k++){
+                number[parseInt(temp[k]+1)]++;
+            }
+        }
+        var show ="<h3>0번 출현한 숫자</h3>";
+        for(var i in number){
+            if(number[i] == 0){
+                show += "<div>"+(parseInt(i)+1)+"</div>";
+            }
+        }
+        show += "<h3>15번 이상 출현한 숫자</h3>"
+        for(var i in number){
+            if(number[i] >= 15){
+                show += "<div>"+(parseInt(i)+1)+"</div>";
+            }
+        }
+        document.getElementById("list").innerHTML =show;
+    }
+</script>
+</html>
