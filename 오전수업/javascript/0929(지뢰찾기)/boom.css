@@ -25,6 +25,12 @@ table{
 }
 img{
     width: 50px;
+    /* opacity: 0; */
+    /* display: none;  */
+    /* 화면에 표시 안되게 하는 방법 : 
+        1. opacity : 0 <=투명도
+        2. display: none <= 아예 그 요소가 존재하지 않았다는 듯 사라진 것처럼 보입니다. */
+    height: 50px;
 }
 table tr td{
     width: 50px;
