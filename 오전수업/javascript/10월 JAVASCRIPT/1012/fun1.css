@@ -1,0 +1,26 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.input_wrap input {
+    width: 150px;
+    height: 35px;
+    border-radius: 7px;
+}
+.input_wrap button{
+    width: 80px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+}
+#output{
+    width: 300px;
+    margin: 0 auto;
+}
+#output span{
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+}
