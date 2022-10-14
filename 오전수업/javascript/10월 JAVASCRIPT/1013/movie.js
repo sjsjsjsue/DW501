@@ -18,7 +18,7 @@ window.onload=function(){
             this.classList.add("active");// focus했을 때 이벤트 발생
         });
         input[i].addEventListener("blur",function(){
-            if(this.val().length ==0){ 
+            if(this.value ==0){ 
                 this.classList.remove("active"); // focus했을 때 다른 애들은 blur 처리해주샴
             }
         });
