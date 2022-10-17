@@ -20,6 +20,8 @@ window.onload=function(){
         input[i].addEventListener("blur",function(){
             if(this.value ==0){ 
                 this.classList.remove("active"); // focus했을 때 다른 애들은 blur 처리해주샴
+                // blur 은 focus를 잃을 때 발생. 데이터 입력이 완료되었음을 의미
+                // focus : 사용자가 폼 요소를 클릭하거나 Tab 키를 눌러 요소로 이동하면 해당 요소가 focus
             }
         });
     }
