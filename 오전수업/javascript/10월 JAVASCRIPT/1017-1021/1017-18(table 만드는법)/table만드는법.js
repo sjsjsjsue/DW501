@@ -17,3 +17,18 @@ draw.innertHTML = out;
 //         <td></td> // 두번째 for문 안에 td 써주기!!
 //     </tr>  
 // </table>
+
+
+
+
+// table 만드는 것 혼자 해보기
+
+var out = "<table>";
+for(var i=1; i<=col.length;i++){
+    out+="<tr>";
+    for(var i=1; i<=row.length;i++){
+        out+="<td></td>";
+    }
+    out+="</tr>";
+}
+out+="</table>";
