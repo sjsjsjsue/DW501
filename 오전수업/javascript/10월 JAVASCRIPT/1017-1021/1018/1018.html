@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function location_object(){
+        // window.open("http://www.naver.com","","width=500 height=500") 
+        // 눌렀을 때 브라우저 창이 width, height 크기의 만큼 실행된다.
+        // alert(window.outerHeight); 
+        // 브라우저의 높이의 크기가 나온다.
+        // window.close();
+        //window가 닫힌다.
+        // window.moveBy(300,200);
+    }
+    </script>
+</head>
+<body>
+    <a href="http://www.naver.com">네이버</a>
+    <button onclick="move()">구글</button>
+
+    <button onclick="location_object()">location 객체보기</button>
+</body>
+<script>
+    function move(){ // 구글이라는 버튼을 눌렀을 때
+        location.href ="http://www.google.com"
+        // location 에 href 라는 변수가 저장되어있음.
+    }
+    // function location_object(){
+    //     // window.open("http://www.naver.com","","width=500 height=500") 
+    //     // 눌렀을 때 브라우저 창이 width, height 크기의 만큼 실행된다.
+    //     // alert(window.outerHeight); 
+    //     // 브라우저의 높이의 크기가 나온다.
+    //     close();
+    // }
+</script>
+</html>
