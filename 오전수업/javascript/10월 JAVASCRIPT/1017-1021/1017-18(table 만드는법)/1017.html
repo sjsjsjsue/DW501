@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="object_make(table 만드는 법).js"></script>
+</head>
+<body>
+    <!-- 
+        행, 열, 너비, 높이, 입력가능한 input (input 은 맷 윗줄에 한줄로 표시)
+        버튼 -> text 는 추가, input 아랫줄 만들기, 추가 버튼 클릭시 버튼 아래줄에 새로운 버튼 생성
+                새버튼의 text 는 "세팅1",
+                추가버튼 한번 더 클릭시 세팅1 옆에 새버튼 생성
+                text는 세팅2, 추가 클릭시마다 세팅 N 명칭으로 버튼 생성
+        !input 에 입력하려면 새버튼 생성 해야만 가능하게 설정
+     -->
+     <div class="input_Wrap">
+        <input type="number" name="col" id="col" placeholder="행"  class="T_put">
+        <input type="number" name="row" id="row" placeholder="열" class="T_put">
+        <input type="number" name="width" id="width" placeholder="너비" class="T_put">
+        <input type="number" name="height" id="height" placeholder="높이" class="T_put">
+     </div>
+     <div class="addbt_wrap">
+        <button id="add">추가</button>
+     </div>
+     <div class="add_wrap">
+
+     </div>
+     <div id="draw"></div>
+</body>
+</html>
