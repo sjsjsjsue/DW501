@@ -1,0 +1,25 @@
+function new_window(){// 윈도우에서 새창열기
+    // alert(screen.width); // 전체의 스크린의 너비를 알 수 있음
+    // alert(screen.height); // 전체의 스크린의 높이를 알 수 있음.
+    var Mwidth = screen.width;
+    var Mheight = screen.height;
+
+    var width =  500, height=700;
+    var left = Mwidth/2 - width/2; // 전체너비 /2 - 설정한 너비/2
+    var top = Mheight/2 - height/2; 
+    var url = "1019-1.html";
+    var win_name = "";
+    var option = "width="+width+", height="+height+", left="+left+", top="+top; // 창이 중간에 올 수 있게!
+
+    var child = window.open(url,win_name,option); // child 변수에 새 윈두우의 핸들값 저장.
+
+    var name = document.getElementById("name").value;
+    // child.document.getElementById("name_view").innerHTML = name; // 자식윈도우에 id 값을 찾음
+    /* 자식 윈도우에 출력이 안됨. 그 이유는 ? 자바스크립트가 head 쪽에 있어서... 그러니 body 아래쪽에 script 를 넣어줘야 함.
+        name_view 라는 아이디가 만들어졌다는 것을 알 수 있는 방법은 window.onload!
+        window.onload : 태그가 다 실행한 후에 window.onload 가 실행 됨.
+        자식 윈도우에 작업을 해야 함.
+        1. window.onload :script 가 head 쪽에 있으면 사용.
+        2. script를 body 아래쪽에 넣기
+    */
+}

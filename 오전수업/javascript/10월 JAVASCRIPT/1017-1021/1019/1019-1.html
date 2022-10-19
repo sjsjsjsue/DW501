@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1019-1</title>
+    <script>
+        // function open_win(){
+        //     window.open("1019-2.html","_blank","width=500, height=500");
+        // }
+        window.onload=function(){
+            var name = opener.document.getElementById("name").value;
+            // var name = opener.document.get("name").value;
+            document.getElementById("name_view").innerHTML = name;
+        }
+        function send(){
+            var parent = opener.document.getElementById("age");
+            // var parent = opener.document.getElementById("age");
+            var  age = document.getElementById("age").value;
+
+            parent.value =age;
+        }
+    </script>
+</head>
+<body>
+    <h1>두번째 윈도우</h1>
+    <!-- <button onclick="open_win()">새 창 열기</button> -->
+    <!-- <a href="1019-2.html" target="_blank"></a>
+    <iframe src="1019-2.html" frameborder="1"></iframe> -->
+    <div id="name_view">    </div>
+    <input type="text" id="age">
+    <button onclick="send()">부모에 전달</button>
+</body>
+</html>
