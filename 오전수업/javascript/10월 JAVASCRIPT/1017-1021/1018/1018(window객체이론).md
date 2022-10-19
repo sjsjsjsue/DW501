@@ -55,13 +55,38 @@
 - open : 새 윈도우 생성. 
     + → open (url. window_name.property) ;
         * url : 페이지 주소
-        * window_name : 
-            * _blank (새 창에 열린다.)
-            * _parent(부모 프레임에 열린다.)
+        * window_name : " __" 안에 넣어줘야 함!
+            * _blank (새 창에 열린다.) == " "
+            * _parent(부모 프레임에 열린다.) 
+                * 태그에 있는 창이 자기 창에 열린다.
             * _self (현재 페이지를 대체한다.)
+                * 자기가 창이 변함?
+                * parent vs self : 비슷한 것 같으나 부모자식의 관계이냐 아닌가?
             * _top (로드된 프레임셋 대체)
-        * property : 새 window의 옵션 부여.
+        * property : 새 window의 옵션 부여. (window창의 크기를 지정할 수 있음.)
             * height : 새 창의 높이 지정.
             * width : 새창의 너비 지정.
-            * left : 모니터 화면 왼쪽에서 위치
-            * top : 모니터 화면 위쪽에서 위치
+            * left : 모니터 화면 왼쪽에서 위치 (왼쪽에서 띄어서 창 표시)
+            * top : 모니터 화면 위쪽에서 위치 (위쪽에서 띄어서 창 표시)
+                * width와 height 을 적으면 ","로 구분
+                * 윈도우 이름이 다르면 하나 더 창이 뜸 
+                ex) 
+                ```javascript
+                window.open("http://www.naver.com","naver","width=700, height=500");
+                window.open("http://www.naver.com","naver1","width=700, height=500");
+                window.open("http://www.naver.com","_blank","width=700, height=500");
+                ```
+                + window.open vs a : window.open 은 창이 하나 더 생기지만, a 태그는 옆으로 창이 하나 더 생김.
+           ### 🥟 모든 브라우저가 안될 수도 있음(적어져있는 것들은 크름은 사용이 안됨.)
+            + channelmode : 전체화면 (yes or NO) 
+            + fullscreen : 전체화면(yes or no)
+            + location : 주소표시줄 표시여부(yes or no) => 오페라에서만 적용 됨.
+            + menubar : 메뉴바 표시여부(yes or no) 
+            + scrollbar : 스크롤바 표시여부(yes or no)
+            + status : 상태바 표시여부 ( yes or no)
+            + resizable : window 크기 번경 여부 (yes or no)
+            + toobar : 툴바 표시 여부( yes or no)
+
+            ### 공부사이트
+            * W3 Schools(정식x 기초적인 것을 공부하기 위해)
+            * MDN 공부 사이트(정석적인 방법 기초적인 지식이 있어야 함)
