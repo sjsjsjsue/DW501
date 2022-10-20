@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form action="save.html" name="fm" method="get">
+        <input type="text" name="id" id="id" value="admin">
+        <input type="password" name="pw" id="pw">
+        <input type="date" name="day" id="day">
+        <input type="checkbox" name="fav" id="fav">
+        <a href="javascript:view()">보기</a>
+    </form>
+    <a href="1020-1.html">이동!</a>
+</body>
+</html>
+<script>
+    
+    // document 객체
+    document.write ("title : " + document.title+"<br>"); 
+    document.write ( "마지막 수정 : " + document.lastModified+"<br>"); 
+    document.bgColor = "pink"; 
+    document.write("배경색 : "+document.bgcolor+"<br>");
+    document.write("링크색:" +document.linkColor+"<br>");
+    document.write("링크색:" +document.alinkColor+"<br>");
+    document.write("링크색:" +document.vlinkColor+"<br>");
+    
+    // form
+    document.write("길이 : "+document.forms.length+"<br>");
+    document.write("첫번째 form name : "+document.forms[0].name+"<br>");
+    document.write(document.forms.fm.name+"<br>");
+    document.write(document.all.fm.name+"<br>");
+    document.write(document.forms["fm"].name+"<br>");
+    document.write(document.forms[0].elements[0].value+"<br>");
+    function view(){
+        var forms = document.forms; // 현재 문서의 form을 배열로 받기.
+        // alert(forms.length); // 폼의 길이를 alert 하라.
+        for( var i in forms){
+            var tags = forms[i].elements; //해당 form에 있는 태그(input)를 배열로 받음.
+            for(var k in tags){
+                alert(tags[k].value);
+            }
+        }
+    }
+
+    //  쿠키
+    setCookie("name","kim",1);
+    function setCookie(쿠키이름, 데이터, 유효기간){
+        const day = new Date();
+        day.setTime(day.getTime()+(유효기간*24*60*60*1000));
+        let expires = "expires="+day.toUTCString();
+        // toUTCString() : 시간을 문자열로 표현하는 함수.
+        document.cookie = 쿠키이름 + "=" + 데이터 + ";" + expires + "; path=/"; 
+    }
+
+    function getCookie(){
+        let decode_cook = decodeURIComponent(document.cookie);
+        // decodeURIComponent() : ()있는 것을 해석 
+        //  decode ? 사람이 볼수 있는 형태로 변경해줘야 함.
+        let temp = decode_cook.split(";"); 
+        for( let i=0; i<temp.length;i++){
+            let c = temp[i]; // 인덱스 번호를 c라는 변수에 담겠다.
+            while(c.charAt(0)==" "){ // 공백이 있으면 substring 을 실행. 아니면 그냥 실행.
+                // charAt : 문자열에서 문자 한 개를 가져오기 위한 함수. ex) member -> M,E,M,B,E,R
+                c = c.substring(1);
+                // substriing(인덱스 번호)
+                //  substring(1,3) 1~3번 인덱스 번호 전까지 추출
+            }        
+            if(c.indexOf("name")==0){
+                alert(c.substring("name=".length,c.length));
+            }
+        }
+    }
+    getCookie();
+</script>

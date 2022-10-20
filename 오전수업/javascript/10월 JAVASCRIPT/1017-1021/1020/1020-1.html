@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getCookie(){
+        let decode_cook = decodeURIComponent(document.cookie);
+        // decodeURIComponent() : ()있는 것을 해석 
+        //  decode ? 사람이 볼수 있는 형태로 변경해줘야 함.
+        let temp = decode_cook.split(";"); 
+        for( let i=0; i<temp.length;i++){
+            let c = temp[i]; // 인덱스 번호를 c라는 변수에 담겠다.
+            while(c.charAt(0)==" "){ // 공백이 있으면 substring 을 실행. 아니면 그냥 실행.
+                // charAt : 문자열에서 문자 한 개를 가져오기 위한 함수. ex) member -> M,E,M,B,E,R
+                c = c.substring(1);
+                // substriing(인덱스 번호)
+                //  substring(1,3) 1~3번 인덱스 번호 전까지 추출
+            }        
+            if(c.indexOf("name")==0){
+                alert(c.substring("name=".length,c.length));
+            }
+        }
+    }
+    getCookie();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
