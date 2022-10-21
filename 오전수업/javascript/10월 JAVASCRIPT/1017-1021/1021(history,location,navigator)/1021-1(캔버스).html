@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //    if( window.HTMLCanvasElement){
+    //     alert("지원");
+    //    }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="900"></canvas>
+</body>
+</html>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d"); // 2d를 그려줄 수 잇는 객체
+    ctx.fillStyle = "rgb(100,200,200)";
+    ctx.fillRect(10,10,50,50); // (X좌표,Y좌표,너비,높이)
+
+    ctx.fillStyle="rgb(200,0,0)";
+    ctx.fillRect(100,100,100,50); // fill 은 색이 채워지는 스타일
+    
+    ctx.strokeStyle = "rgb(50,200,100)"; // stroke 는 색이 채워지지 않는 스타일
+    ctx.strokeRect(100,120,70,150);
+
+    ctx.beginPath(); // 선 시작
+    ctx.moveTo(50,50); // 시작점
+    ctx.lineTo(200,200);
+    ctx.strokeStyle = "rgb(0,0,100)"; // 마지막에 적용된 선의 색이 적용. 아무리 위에 선 색깔이 있다고 하더라도!
+    ctx.moveTo(100,100);
+    ctx.lineTo(500,50);
+
+    ctx.moveTo(300,300);
+    ctx.lineTo(400,300);
+    ctx.lineTo(350,400);
+
+    ctx.closePath(); // 선 닫음
+    ctx.stroke(); // 선을 그림
+</script>
