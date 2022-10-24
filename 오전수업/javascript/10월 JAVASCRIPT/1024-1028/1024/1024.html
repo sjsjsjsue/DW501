@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="2000" height="1000"></canvas>
+</body>
+</html>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgb(250,237,125)";
+    ctx.fillRect(300,300,400,300); // 사각형 그리기 (아래 사각형)
+
+    ctx.fillStyle = "rgb(255,193,158)";
+    ctx.fillRect(350,200,40,80); // 지붕
+
+    ctx.fillStyle = "rgb(134,229,127)";
+    ctx.beginPath();
+    ctx.moveTo(700,300);
+    ctx.lineTo(500,150); // 윗꼭지점
+    ctx.lineTo(300,300);
+    ctx.closePath(); // 삼각형 그리기
+    
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(350,150,20,0,2*Math.PI,true);
+    
+    ctx.moveTo(340,130);
+    ctx.arc(300,120,15,0,2*Math.PI,true);
+    
+    ctx.moveTo(270,110);
+    ctx.arc(250,100,10,0,2*Math.PI,true);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(209,178,255)";
+    ctx.fill();
+
+    // ctx.beginPath();
+    // ctx.arc(250,100,10,0,2*Math.PI,true);
+    // ctx.closePath();
+    // ctx.fillStyle = "rgb(209,178,255)";
+    // ctx.fill();
+
+
+</script>

@@ -37,8 +37,15 @@
 
     ctx.moveTo(300,300);
     ctx.lineTo(400,300);
-    ctx.lineTo(350,400);
+    ctx.lineTo(350,400);// 삼각형
 
     ctx.closePath(); // 선 닫음
     ctx.stroke(); // 선을 그림
+
+    ctx.beginPath();
+    ctx.arc(500,500,50,0,2*Math.PI,true);
+    ctx.closePath();
+    ctx.fillStyle="pink";
+    ctx.fill();
+    ctx.stroke();// 원
 </script>

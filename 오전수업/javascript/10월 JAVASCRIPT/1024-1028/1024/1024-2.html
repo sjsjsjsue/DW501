@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ball {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ball" width="500" height="400"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("ball");
+    var ctx = canvas.getContext("2d");
+    var ball = {x:100, y:50 , x_step:1, y_step:1};
+
+    setInterval(move,50);
+    setInterval(color_change,100);
+    setInterval(size_change,50);
+    function move(){
+        
+        ctx.clearRect(0,0,500,400); // 자기 지나간 흔적 지우기!
+        ctx.beginPath();
+        ctx.arc(ball.x,ball.y,10,0,2*Math.PI, true);
+        ctx.closePath();
+        ctx.fillStyle = "pink";
+        ctx.fill();
+        ctx.stroke();
+
+        // 볼이 튀어오를 수 있는 문
+        if(ball.x+ball.x_step>500 || ball.x+ball.x_step<0){
+            ball.x_step = ball.x_step*(-1);
+        }
+        if(ball.y+ball.y_step >400 || ball.y+ball.y_step<0){
+            ball.y_step = ball.y_step*(-1);
+        }
+
+        ball.x+=ball.x_step;
+        ball.y+=ball.y_step;
+
+        requestAnimationFrame(move);
+    }
+    move();
+    function color_change(){
+        color.r=Math.random(Math.random()*256);
+        color.g=Math.random(Math.random()*256);
+        color.b=Math.random(Math.random()*256);
+    }
+    function size_change(){
+
+    }
+</script>
