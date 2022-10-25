@@ -1,0 +1,19 @@
+.h1-text{
+    font-size: 2.1rem;
+    margin: 0.8rem 0.6rem;
+}
+.h2-text{
+    font-size: 1.6rem;
+    margin: 0.6rem 0.3rem;
+}
+.h3-text{
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+.text-white{
+    color: white;    
+}
+.text-pink{
+    color: pink;
+    font-weight: 800;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+   이론은 action_pages.md에 있음!
+    -->
+    <style>
+        body{
+            background-color: lightcoral;
+        }
+        html{font-size: 15px;}
+        p{
+            font-size: 3rem; 
+        }
+        .emtest{font-size: 40px;}
+        b{font-size: 3em;}
+        
+        /* @media all and (min-width:940px){
+            p{font-size: 20px;}
+        } */
+        /* @media only screen and (max-width:600px){
+            body{background-color: lightblue;}
+        }
+        @import url(<css 파일경로>) all and (max-width:500px); */
+    </style>
+    <link rel="stylesheet" href="" media="all and (max-width:900px)"> 
+    <!-- media 조건에 일치하는 링크만 적용 됨. -->
+</head>
+<body>
+    <p>나는 text 입니다.</p>
+    <div class="emtest">
+        <b>나는 emtest >.0</b>
+    </div>
+</body>
+</html>
