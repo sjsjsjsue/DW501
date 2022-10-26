@@ -13,12 +13,56 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 90%;
-  padding: 5% 5%;
+  width: calc(100% - 100px);
+  /* 
+  calc() : 괄호안의 식을 계산한 결과를 속성값으로 사용하게 해주는 함수 
+  더하기 빼기 연산자의 경우 앞 뒤 공백이 반드시 들어가야하나, 
+  곱하기, 나누기 는 공백이 필요 없음!!
+  */
+  padding: 5% 50px;
   /* %로 줬기 때문에 전체 너비에 따라 padding값이 달라짐! */
   max-width: 1000px;
   margin: 0 auto;
 }
+#image_section {
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+}
+/* 가변적인 값으로 주려면 %로 줘야 함! */
+.image_wrap {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+.imgb1 {
+  width: 36%;
+  background-color: pink;
+  font-size: 3vh;
+}
+.imgb2 {
+  width: 64%;
+  background-color: #478899;
+}
+.image_box {
+  height: 350px;
+}
+#multi-section {
+  width: 100%;
+}
+#milti-section > div {
+  width: 70%;
+  display: inline-block;
+  margin: 0 15%;
+}
+#multi-section img,
+#multi-section video {
+  width: 100%;
+  max-width: 100%;
+}
+
 /* 태블릿 */
 @media all and(min-width:780px) {
   html {
