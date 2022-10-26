@@ -22,6 +22,13 @@
       <option value="episode">episode</option>
     </select>
     <button onclick="doSearch()">영화 검색</button>
+
+
+    <h3 id="movieTitle"></h3>
+    <p>개봉연도 : <span id="year"></span></p>
+    <p>영화 고유번호(pk): <span id="movieId"></span></p>
+    <p>영화 포스터 : <span id="poster"></span></p>
+
   </body>
   <!-- Jquery CDN download -->
   <script
@@ -41,7 +48,7 @@
     // 영화 사이트 KEY
     // 상수값은 변수이름을 대문자로 작성한다.
     //  카멜표기법이 아닌 언더바로 표기한다.
-    const API_KEY = '764ed67';
+    const API_KEY = 'b973f793';
     // 영화사이트 조회하기
     function doSearch() {
       // 검색 내용과 타입 가져오기(제이쿼리로)
@@ -65,6 +72,16 @@
         dataType: 'json',
         success: function (response) {
           console.log(response);
+          console.log(response.Search[0].Title);
+          console.log(response.Search[0].imdbID);
+
+          var movieTitle = response.Search[0].Title;
+          $("#movieTitle").append(movieTitle); // 영화제목
+          $("#year").append(response.Search[0].Year); // 개봉연도
+          $("#year").append(response.Search[0].imdbID); // 영화고유아이디
+          var html ="<img src="+response.Search[0].Poster+">";
+          $("#poster").append(html);
+
         },
       });
     }
