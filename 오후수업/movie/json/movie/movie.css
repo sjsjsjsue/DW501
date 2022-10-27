@@ -1,32 +1,44 @@
-body{
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   transform: 0.3s;
 }
-.container{
-  width: 100%;
+.container {
+  /* width: 100%; */
   height: auto;
   background-color: lightblue;
   margin: 50px auto;
+  padding: 20px;
 }
-.title{
+.title {
   text-align: center;
   font-size: 42px;
 }
-.movie-row{
+.movie-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
-.series-row{
+.series-row {
   display: flex;
   justify-content: space-between;
 }
-.item{
+.item {
   flex-basis: 17%;
+  cursor: pointer;
 }
-.poster{
+.poster {
   width: 100px;
   height: auto;
+}
+.title {
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 22px;
+}
+.year {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
 }
