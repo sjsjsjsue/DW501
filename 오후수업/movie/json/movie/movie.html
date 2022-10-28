@@ -6,74 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>해외 영화 사이트</title>
     <link rel="stylesheet" href="movie.css" />
+    <!-- 
+      font awesome  : 구글 폰트
+     -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
+    <!-- 영화리스트 -->
     <div class="container">
-      <div class="title">
-        <h2>SUE 영화나라</h2>
+      <!-- 영화 상세정보 -->
+      <div class="movie-section">
+        <div class="back">
+          <!-- 뒤로 가기 -->
+          <a href="#" onclick="doClose()"> ◀ Back to Home</a>
+        </div>
+        <div class="section-left">
+          <!-- 영화 상세정보 -->
+          <!-- 영화 제목 -->
+          <div id="movie-title" class="movie-title"></div>
+          <!-- 영화 평점 -->
+          <div class="movie-rating"></div>
+          <span
+            >Rating <i class="fa fa-star"></i> : <span id="rating"></span>
+          </span>
+          <span
+            >Votes <i class="fa fa-thumbs-up"></i> : <span id="votes"></span
+          ></span>
+          <span
+            >Runtime <i class="fa fa-film"></i> : <span id="film"></span>
+          </span>
+          <span
+            >Year <i class="fa fa-calendar"></i> : <span id="year"></span
+          ></span>
+          <!-- 영화 줄거리 -->
+          <div id="movie-plot" class="movie-plot"></div>
+          <!-- 영화 출연감독, 배우, 장르, 수상내역 -->
+          <div class="movie-info">
+            <div>
+              <span>Director</span>
+              <span id="director"></span>
+            </div>
+            <div>
+              <span>Star</span>
+              <span id="star"></span>
+            </div>
+            <div>
+              <span>Generes</span>
+              <span id="generes"></span>
+            </div>
+            <div>
+              <span>Languages</span>
+              <span id="languages"></span>
+            </div>
+            <div>
+              <span>Awards</span>
+              <span id="awards"></span>
+            </div>
+          </div>
+        </div>
+        <div id="poster-img" class="section-right"></div>
       </div>
-      <div class="movie-row">
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="movie-0" class="poster"></div>
-          <h4 class="title" id="movie-title-0"></h4>
-          <p class="year" id="movie-year-0"></p>
-          <input type="hidden" id="movie-id-0" />
+      <!-- 영화 포스터 이미지 -->
+      <div class="movie-title">
+        <div class="title">
+          <h2>SUE NETFILX</h2>
         </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="movie-1" class="poster"></div>
-          <h4 class="title" id="movie-title-1"></h4>
-          <p class="year" id="movie-year-1"></p>
-          <input type="hidden" id="movie-id-1" />
+        <div class="movie-row">
+          <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
+            <div id="movie-0" class="poster"></div>
+            <h4 class="title" id="movie-title-0"></h4>
+            <p class="year" id="movie-year-0"></p>
+            <input type="hidden" id="movie-id-0" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
+            <div id="movie-1" class="poster"></div>
+            <h4 class="title" id="movie-title-1"></h4>
+            <p class="year" id="movie-year-1"></p>
+            <input type="hidden" id="movie-id-1" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
+            <div id="movie-2" class="poster"></div>
+            <h4 class="title" id="movie-title-2"></h4>
+            <p class="year" id="movie-year-2"></p>
+            <input type="hidden" id="movie-id-2" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
+            <div id="movie-3" class="poster"></div>
+            <h4 class="title" id="movie-title-3"></h4>
+            <p class="year" id="movie-year-3"></p>
+            <input type="hidden" id="movie-id-3" />
+          </div>
+          <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
+            <div id="movie-4" class="poster"></div>
+            <h4 class="title" id="movie-title-4"></h4>
+            <p class="year" id="movie-year-4"></p>
+            <input type="hidden" id="movie-id-4" />
+          </div>
         </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="movie-2" class="poster"></div>
-          <h4 class="title" id="movie-title-2"></h4>
-          <p class="year" id="movie-year-2"></p>
-          <input type="hidden" id="movie-id-2" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="movie-3" class="poster"></div>
-          <h4 class="title" id="movie-title-3"></h4>
-          <p class="year" id="movie-year-3"></p>
-          <input type="hidden" id="movie-id-3" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="movie-4" class="poster"></div>
-          <h4 class="title" id="movie-title-4"></h4>
-          <p class="year" id="movie-year-4"></p>
-          <input type="hidden" id="movie-id-4" />
-        </div>
-      </div>
-      <div class="series-row">
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="series-0" class="item"></div>
-          <h4 class="title" id="movie-series-0"></h4>
-          <p class="year" id="series-year-0"></p>
-          <input type="hidden" id="series-id-0" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="series-1" class="item"></div>
-          <h4 class="title" id="movie-series-1"></h4>
-          <p class="year" id="series-year-1"></p>
-          <input type="hidden" id="series-id-1" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="series-2" class="item"></div>
-          <h4 class="title" id="movie-series-2"></h4>
-          <p class="year" id="series-year-2"></p>
-          <input type="hidden" id="series-id-2" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="series-3" class="item"></div>
-          <h4 class="title" id="movie-series-3"></h4>
-          <p class="year" id="series-year-3"></p>
-          <input type="hidden" id="series-id-3" />
-        </div>
-        <div class="item" data-tilt onclick="getMovieDetailInfo(this)">
-          <div id="series-4" class="item"></div>
-          <h4 class="title" id="movie-series-4"></h4>
-          <p class="year" id="series-year-4"></p>
-          <input type="hidden" id="series-id-4" />
+        <div class="series-row">
+          <div class="item" data-tilt onclick="getSeriesDetailInfo(this)">
+            <div id="series-0" class="item"></div>
+            <h4 class="title" id="movie-series-0"></h4>
+            <p class="year" id="series-year-0"></p>
+            <input type="hidden" id="series-id-0" />
+          </div>
+          <div class="item" data-tilt onclick="getSeriesDetailInfo(this)">
+            <div id="series-1" class="item"></div>
+            <h4 class="title" id="movie-series-1"></h4>
+            <p class="year" id="series-year-1"></p>
+            <input type="hidden" id="series-id-1" />
+          </div>
+          <div class="item" data-tilt onclick="getSeriesDetailInfo(this)">
+            <div id="series-2" class="item"></div>
+            <h4 class="title" id="movie-series-2"></h4>
+            <p class="year" id="series-year-2"></p>
+            <input type="hidden" id="series-id-2" />
+          </div>
+          <div class="item" data-tilt onclick="getSeriesDetailInfo(this)">
+            <div id="series-3" class="item"></div>
+            <h4 class="title" id="movie-series-3"></h4>
+            <p class="year" id="series-year-3"></p>
+            <input type="hidden" id="series-id-3" />
+          </div>
+          <div class="item" data-tilt onclick="getSeriesDetailInfo(this)">
+            <div id="series-4" class="item"></div>
+            <h4 class="title" id="movie-series-4"></h4>
+            <p class="year" id="series-year-4"></p>
+            <input type="hidden" id="series-id-4" />
+          </div>
         </div>
       </div>
     </div>
@@ -144,6 +213,7 @@
             $('#series-' + i).append(html);
             $('#movie-series-' + i).append(response.Search[i].Title);
             $('#series-year-' + i).append(response.Search[i].Year);
+            $('#series-id-' + i).val(response.Search[i].imdbID);
           }
         },
       });
@@ -167,8 +237,115 @@
         success: function (response) {
           // 영화 상세정보 확인
           console.log(response);
+          // hidden -> visible 로 변경
+          $('.movie-section').css('visibility', 'visible');
+          $('.movie-title').css('opacity', 0.3);
+          // 영화 제목
+          $('#movie-title').empty();
+          $('#movie-title').append(response.Title);
+
+          $('#rating').empty();
+          $('#rating').append(response.imdbRating);
+
+          $('#votes').empty();
+          $('#votes').append(response.imdbVotes);
+
+          $('#runtime').empty();
+          $('#runtime').append(response.Runtime);
+
+          $('#year').empty();
+          $('#year').append(response.Year);
+
+          $('#movie-plot').empty();
+          $('#movie-plot').append(response.Plot);
+
+          $('#director').empty();
+          $('#director').append(response.Director);
+
+          $('#star').empty();
+          $('#star').append(response.Actors);
+
+          $('#generes').empty();
+          $('#generes').append(response.Genre);
+
+          $('#languages').empty();
+          $('#languages').append(response.Language);
+
+          $('#awards').empty();
+          $('#awards').append(response.Awards);
+
+          $('#poster-img').empty();
+          var html = '<img src="' + response.Poster + '">';
+          $('#poster-img').append(html);
         },
       });
+    }
+
+    function getSeriesDetailInfo(obj) {
+      // 클릭한 영화 고유 아이디 콘솔에 출력하기.
+      console.log(obj.children[3].value);
+      // console.log(obj.children[3].value); // 안나옴...앗
+
+      var movieId = obj.children[3].value;
+      $.ajax({
+        url:
+          'http://www.omdbapi.com/?apikey=' +
+          API_KEY +
+          '&i=' +
+          movieId +
+          '&polt=full',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+          // 영화 상세정보 확인
+          console.log(response);
+          // hidden -> visible 로 변경
+          $('.movie-section').css('visibility', 'visible');
+          $('.movie-list').css('opcity', 0.1);
+          // 영화 제목
+          $('#movie-title').empty();
+          $('#movie-title').append(response.Title);
+
+          $('#rating').empty();
+          $('#rating').append(response.imdbRating);
+
+          $('#votes').empty();
+          $('#votes').append(response.imdbVotes);
+
+          $('#runtime').empty();
+          $('#runtime').append(response.Runtime);
+
+          $('#year').empty();
+          $('#year').append(response.Year);
+
+          $('#movie-plot').empty();
+          $('#movie-plot').append(response.Plot);
+
+          $('#director').empty();
+          $('#director').append(response.Writer);
+
+          $('#star').empty();
+          $('#star').append(response.Actors);
+
+          $('#generes').empty();
+          $('#generes').append(response.Genre);
+
+          $('#languages').empty();
+          $('#languages').append(response.Language);
+
+          $('#awards').empty();
+          $('#awards').append(response.Awards);
+
+          $('#poster-img').empty();
+          var html = '<img src="' + response.Poster + '">';
+          $('#poster-img').append(html);
+        },
+      });
+    }
+
+    function doClose() {
+      $('.movie-section').css('visibility', 'hidden');
+      $('.movie-title').css('opacity', 1);
     }
   </script>
   <script src="../../js/vanilla-tilt.js"></script>
