@@ -60,6 +60,7 @@ body {
   top: 100px;
   left: 100px;
   z-index: 1;
+  /* z-index : 뒤에 있는 div를 앞으로 나올 수 있게 함! */
   display: flex;
   width: 1700px;
   margin: 100px auto;
