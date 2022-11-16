@@ -42,7 +42,7 @@ public class home {
 		System.out.println("직원 총 급여는 "+sum+"원 입니다.");
 		//문제3. 직원 평균 급여 구하기
 		int avg = 0;
-		for (Emp i : sawon) {
+		for (Emp i : sawon) { // i를 사용하지 않아서 노랑줄이 뜸
 			avg++;
 		}
 		avg = sum / avg;
