@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>안녕하세요 여기는 MOVIE 화면 입니다. ^^</h2>
+	<p id="data"></p>
+	
+	<p id="movie_title-0">타이틀 : </p>
+	<p id="movie_year-0">연도 : </p>
+	<p id="movie_runing-0">러닝타임 :</p>
+	<p id="movie_genre-0">장르 : </p>
+	<hr>
+	<p id="movie_title-1">타이틀 : </p>
+	<p id="movie_year-1">연도 : </p>
+	<p id="movie_runing-1">러닝타임 :</p>
+	<p id="movie_genre-1">장르 : </p>
+	<hr>
+	<p id="movie_title-2">타이틀 : </p>
+	<p id="movie_year-2">연도 : </p>
+	<p id="movie_runing-2">러닝타임 :</p>
+	<p id="movie_genre-2">장르 : </p>
+	<hr>
+</body>
+<script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+  
+  
+  // 함수 호출
+  	function callMyAPI(){
+	  //ajax : 백앤드와 프론트가 통신하는 기능
+  		 $.ajax({
+  			 url: '/api/v1/movies',
+  			 type : 'GET',
+  			 // type : GET == GetMapping
+  			 dataType : 'json',
+  			 success : function(response){
+  				$('#data').append(response[0].title);
+  				console.log(response);
+  				// HTML 화면에 보임
+  				
+  				// start
+  				for(var i=0; i<3; i++){
+  					$('#movie_title-' + i).append(response[i].title);
+  					$('#movie_year-' + i).append(response[i].year);
+  					$('#movie_runing-' + i).append(response[i].runtime);
+  					$('#movie_genre-' + i).append(response[i].genre);
+  				}
+  				//end
+  			 }
+  		 });
+  	}
+  	callMyAPI(); 
+  </script>
+  
+</html>
