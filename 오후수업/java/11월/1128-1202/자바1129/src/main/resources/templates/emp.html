@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EMP 화면</title>
+
+<style type="text/css">
+table tr td{
+	border : 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h2>안녕하세요 여기는 EMP 화면 입니다. ^^</h2>
+	<input id="empno" type="text" placeholder="사원 번호를 입력하세요"/>
+	<input id="ename" type="text" placeholder="사원 이름을 입력하세요"/>
+	<input id="job" type="text" placeholder="사원 직책을 입력하세요"/>
+	<input id="sal" type="text" placeholder="사원 급여 입력하세요"/>
+	<button onclick="join()" type="button">사원 추가</button>
+	<div>
+	<table>
+		<tr>
+			<td>EMPNO</td>
+			<td>ENAME</td>
+			<td>JOB</td>
+			<td>SAL</td>
+			<td>HIREDATE</td>
+		</tr>
+		<tr>
+			<td id="empno-1"></td>
+			<td id="ename-1"></td>
+			<td id="job-1"></td>
+			<td id="sal-1"></td>
+			<td id="hiredate-1"></td>
+		</tr>
+		<tr>
+			<td id="empno-2"></td>
+			<td id="ename-2"></td>
+			<td id="job-2"></td>
+			<td id="sal-2"></td>
+			<td id="hiredate-2"></td>
+		</tr>
+		<tr>
+			<td id="empno-3"></td>
+			<td id="ename-3"></td>
+			<td id="job-3"></td>
+			<td id="sal-3"></td>
+			<td id="hiredate-3"></td>
+		</tr>
+		<tr>
+			<td id="empno-4"></td>
+			<td id="ename-4"></td>
+			<td id="job-4"></td>
+			<td id="sal-4"></td>
+			<td id="hiredate-4"></td>
+		</tr>
+		<tr>
+			<td id="empno-5"></td>
+			<td id="ename-5"></td>
+			<td id="job-5"></td>
+			<td id="sal-5"></td>
+			<td id="hiredate-5"></td>
+		</tr>
+		<tr>
+			<td id="empno-6"></td>
+			<td id="ename-6"></td>
+			<td id="job-6"></td>
+			<td id="sal-6"></td>
+			<td id="hiredate-6"></td>
+		</tr>
+		<tr>
+			<td id="empno-7"></td>
+			<td id="ename-7"></td>
+			<td id="job-7"></td>
+			<td id="sal-7"></td>
+			<td id="hiredate-7"></td>
+		</tr>
+		<tr>
+			<td id="empno-8"></td>
+			<td id="ename-8"></td>
+			<td id="job-8"></td>
+			<td id="sal-8"></td>
+			<td id="hiredate-8"></td>
+		</tr>
+		<tr>
+			<td id="empno-9"></td>
+			<td id="ename-9"></td>
+			<td id="job-9"></td>
+			<td id="sal-9"></td>
+			<td id="hiredate-9"></td>
+		</tr>
+		<tr>
+			<td id="empno-10"></td>
+			<td id="ename-10"></td>
+			<td id="job-10"></td>
+			<td id="sal-10"></td>
+			<td id="hiredate-10"></td>
+		</tr>
+		<tr>
+			<td id="empno-11"></td>
+			<td id="ename-11"></td>
+			<td id="job-11"></td>
+			<td id="sal-11"></td>
+			<td id="hiredate-11"></td>
+		</tr>
+		<tr>
+			<td id="empno-12"></td>
+			<td id="ename-12"></td>
+			<td id="job-12"></td>
+			<td id="sal-12"></td>
+			<td id="hiredate-12"></td>
+		</tr>
+		<tr>
+			<td id="empno-13"></td>
+			<td id="ename-13"></td>
+			<td id="job-13"></td>
+			<td id="sal-13"></td>
+			<td id="hiredate-13"></td>
+		</tr>
+		<tr>
+			<td id="empno-14"></td>
+			<td id="ename-14"></td>
+			<td id="job-14"></td>
+			<td id="sal-14"></td>
+			<td id="hiredate-14"></td>
+		</tr>
+		
+	</table>
+	</div>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.1.js"
+integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+crossorigin="anonymous"
+></script>
+ <script type="text/javascript">
+  
+  
+  // 함수 호출
+  	function callEmp(){
+	  //ajax : 백앤드와 프론트가 통신하는 기능
+  		 $.ajax({
+  			 url: '/api/v1/emp',
+  			 type : 'GET',
+  			 // type : GET == GetMapping
+  			 dataType : 'json',
+  			 success : function(response){
+  				// $('#data').append(response[0].title);
+  				console.log(response);
+  				// HTML 화면에 보임
+  				
+  				// start
+  				for(var i=0; i<response.length; i++){
+  					$('#empno-' + i).append(response[i].empno);
+  					$('#ename-' + i).append(response[i].ename);
+  					$('#job-' + i).append(response[i].job);
+  					$('#sal-' + i).append(response[i].sal);
+  					$('#hiredate-' + i).append(response[i].hiredate);
+  				}
+  				//end
+  				/*
+  				방법 2.
+  				 function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					html += '<tr><td>' + response[i].empno + '</td><td>'
+							+ response[i].ename + '</td><td>' + response[i].job
+							+ '</td><td>' + response[i].sal + '</td><td>'
+							+ response[i].hiredate + '</td></tr>';
+				}
+				$('#data').append(html);
+			}
+		});
+
+  				
+  				방법 3.
+  				 for(var i=0; i<response.length;i++){
+  					tr = $("<tr><tr>");
+  					
+  					empno = $("<td>" + response[i].empno + "</td>");
+  					ename = $("<td>" + response[i].ename + "</td>");
+  					job = $("<td>" + response[i].job+ "</td>");
+  					sal = $("<td>" + response[i].sal + "</td>");
+  					hiredate = $("<td>" + response[i].hiredate + "</td>");
+  					
+  					tr.append(empno);
+  					tr.append(ename);
+  					tr.append(job);
+  					tr.append(sal);
+  					tr.apppend(hiredate);
+  					
+  					$("#data".append(tr));
+  				}
+  				
+  				*/
+  			 }
+  		 });
+  	}
+  	callEmp(); 
+  	
+  	function join(){
+  		var empno = $("#empno").val();
+  		var ename = $("#ename").val();
+  		var job = $("#job").val();
+  		var sal = $("#sal").val();
+  		
+  		var jsonData ={
+  				"empno" : empno,
+  				"ename" : ename,
+  				"job" : job,
+  				"sal" : sal
+  		};
+        // AJAX 호출
+		$.ajax({
+			url:'/api/v1/emp/join',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				console.log(response)
+				alert("사원추가 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});
+  	}
+  </script>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.EmpMapper">
+	<select id="selectEmp" resultType="com.example.demo.vo.EmpVO">
+	<!-- id는 mapper에 있는 메소드 이름과 동일, 리턴타입(resultType)은 VO 클래스 -->
+	<!--SQL 전용 태그임! 비슷, html 태그-->
+	<!--SQL 쿼리 문은 대문자! 테이블은 소문자로-->
+		SELECT * FROM emp
+	</select>
+	
+	<select id="selectDept" resultType="com.example.demo.vo.DeptVO">
+		SELECT * FROM dept
+	</select>
+	
+	<insert id="insertEmp">
+			<!--INSERT, UPDATE, DELETE 의 return 타입은 INT -->
+			<!--INSERT는 파라미터값이 있어야 함 -->
+		INSERT INTO emp
+		(
+			empno,
+			ename,
+			job,
+			sal
+			) 
+		VALUES 
+		(
+		#{empno},
+		#{ename},
+		#{job},
+		#{sal}
+		)
+	</insert>
+</mapper>
