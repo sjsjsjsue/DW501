@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>회원 가입</title>
+<link rel="stylesheet" href="../css/Login2.css">
+<body>
+<div class="cd-main-header js-cd-main-header">
+    <div id="main_ct" class="wrap">
+        <div id="form" >
+            <h1>회원가입</h1>
+            <div class="form-container">
+                <div class="form-box">
+                    <div class="box-title" >
+                        <span>회원 정보</span>
+                    </div>
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>가입자 명
+                        </div>
+                        <input autocomplete="off" type="text" id="userName" style="width:755px;">
+                    </div>
+                    <!--//box-->
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>연락처
+                        </div>
+                        <input class="phone" id="phone" name="number" value="" maxlength="11" type="text" autocomplete="off"/>
+                    </div>
+                    <!--//box-->
+                    <div class="box">
+                        <div class="new-password-area" style="float:left; ">
+                            <div class="customer-new-password">
+                                <div class="customer-password-text">
+                                    <div class="circle"></div>비밀번호
+                                </div>
+                                <input autocomplete="off" type="password" id="password_1" class="pw">
+                            </div>
+                            <div class="customer-new-check-password" style="margin-bottom:10px !important;">
+                                <div class="customer-password-text">
+                                    <div class="circle"></div>비밀번호 확인
+                                </div>
+                                <input autocomplete="off" type="password" id="password_2" class="pw">
+                            </div>
+                            <div class="edit-icon-area" style="float:left; width:98%; color:red; height:50px; text-align: left; padding-left:330px; ">
+                                <div id="alert-danger" class="error-text" style="display: none;">Error Text 비밀번호가 일치하지 않습니다.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>E-mail
+                        </div>
+                        <input class="email" id="firstEmail" type="text" autocomplete="off"><span style="font-size:28px;">@</span>
+                        <input class="str_email02" id="secondEmail" type="text">
+                        <select class="selectEmail" id="emailOption">
+                            <option value="1" selected>직접입력</option>
+                            <option value="naver.com" >naver.com</option>
+                            <option value="hanmail.net">hanmail.net</option>
+                            <option value="hotmail.com">hotmail.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                        </select>
+                    </div>
+                    <!--//box-->
+                    <div class="box-title" style="margin-top:80px;">
+                        <span>소속 회사 정보</span>
+                    </div>
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>업체 명
+                        </div>
+                        <input type="text" id="companyName" autocomplete="off" />
+                    </div>
+                    <!--//box-->
+                    <div class="box">
+                        <div class="input-title" style="margin-bottom:40px;">
+                            <div class="circle"></div>업체 주소
+                        </div>
+                        <input type="text" style="width:570px; margin-bottom:20px;" id="addr" autocomplete="off" />
+                        <button style="cursor: pointer; background-color:#fff; border:none;" onclick="getPostCode()">우편번호 찾기</button>
+                        <input type="text" style="width:755px;" id="detailAddr" autocomplete="off" />
+                    </div>
+                    <!--//box-->
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>업체 연락처
+                        </div>
+                        <input class="phone" id="companyPhone" name="number" value="" maxlength="11" type="text" autocomplete="off"/>
+                    </div>
+                    <!--//box-->
+                    <div class="box">
+                        <div class="input-title">
+                            <div class="circle"></div>업체 사업자 번호
+                        </div>
+                        <input class="BusinessNumber" id="companyNumber" name="number" value="" maxlength="10" type="text" autocomplete="off"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="join-finish-btn">
+            <button class="join_btn" onclick="doJoin()"><span>회원가입 완료</span></button>
+        </div>
+    </div>
+    <!--//main_ct-->
+</div>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.1.js"
+integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+crossorigin="anonymous"
+></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    // select box 이메일 클릭시 input 에 자동으로 값 추가
+    $("#emailOption").change(function(){
+        let email = $("#emailOption option:selected").val();
+        $("#secondEmail").val(email);
+    })
+    function doJoin(){
+        // alert()하고 return (함수종료) 써야함!
+
+
+        let userName = $("#userName").val(); // 가입자명
+        if(userName === ""){
+            alert("이름을 입력해주세요.");
+            $("#userName").focus();
+            return;
+        }
+        var phone = $("#phone").val(); // 연락처
+        if(phone === ""){
+            alert("연락처를 입력해주세요.");
+            $("#phone").focus();
+            return;
+        }
+        var password_1 = $("#password_1").val(); // 비밀번호
+        if(password_1 === ""){
+            alert("비밀번호를 입력해주세요.");
+            $("#password_1").focus();
+            return;
+        }
+        var password_2 = $("#password_2").val(); // 비밀번호 재확인
+        if(password_2 === ""){
+            alert("비밀번호를 입력해주세요.");
+            $("#password_2").focus();
+            return;
+        }
+        var firstEmail = $("#firstEmail").val(); // 이메일 주소
+        if(firstEmail === ""){
+            alert("이메일을 입력해주세요.");
+            $("#firstEmail").focus();
+            return;
+        }
+        var secondEmail = $("#secondEmail").val(); // 이메일 주소 com
+        if(secondEmail === ""){
+            alert("이메일을 입력해주세요.");
+            $("#secondEmail").focus();
+            return;
+        }
+        var companyName = $("#companyName").val(); // 업체명
+        if(companyName === ""){
+            alert("업체명을 입력해주세요.");
+            $("#companyName").focus();
+            return;
+        }
+        var addr = $("#addr").val(); // 업체명 주소
+        if(addr === ""){
+            alert("주소를 입력해주세요.");
+            $("#addr").focus();
+            return;
+        }
+        var detailAddr = $("#detailAddr").val(); // 동호수 주소
+        if(detailAddr === ""){
+            alert("동호수 주소를 입력해주세요.");
+            $("#detailAddr").focus();
+            return;
+        }
+        var companyPhone = $("#companyPhone").val(); // 업체명 전화번호
+        if(companyPhone === ""){
+            alert("업체명 전화번호를 입력해주세요.");
+            $("#companyPhone").focus();
+            return;
+        }
+        var companyNumber = $("#companyNumber").val(); // 업체명 사업자 번호
+        if(companyNumber === ""){
+            alert("업체명 사업자 번호를 입력해주세요.");
+            $("#companyNumber").focus();
+            return;
+        }
+
+    //     var array = [userName,phone, password_1, password_2,
+    //                 firstEmail,secondEmail, addr, detailAddr,companyPhone, companyNumber];
+    //     for(var i=0; i<array.length; i++){
+    //         if(array[i]===""){
+    //         alert("필수 입력란입니다. 적어주시길 바랍니다. ");
+    //         return;
+    //     }
+    // }
+        alert("회원가입 완료!");
+        
+        let jsonData ={
+            "userName" : userName,
+            "phone" : phone,
+            "password" : password_1,
+            "email" : firstEmail + "@" + secondEmail,
+            "companyName" : companyName,
+            "addr" : addr,
+            "companyPhone" : companyPhone,
+            "companyNumber" : companyNumber
+        };
+        doSumit(jsonData);
+    }
+
+    // 백엔드 (API 서버)에 데이터 전송
+    function doSumit(data){
+        console.log(data);
+        
+        // AJAX 호출
+		$.ajax({
+			url:'/api/v1/join2',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(data),
+			dataType : 'json',
+			success : function(response){
+				console.log(response)
+			}
+			
+		});
+    }
+
+
+
+
+    // 도로명 주소 함수
+    // 이런 창을 모달창, 팝업창이라고 한다.
+  function getPostCode(){
+    	  new daum.Postcode({
+              oncomplete: function(data) {
+                  // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                  // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                  var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                  var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+                  // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                  // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                      extraRoadAddr += data.bname;
+                  }
+                  // 건물명이 있고, 공동주택일 경우 추가한다.
+                  if(data.buildingName !== '' && data.apartment === 'Y'){
+                      extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                  }
+                  // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                  if(extraRoadAddr !== ''){
+                      extraRoadAddr = ' (' + extraRoadAddr + ')';
+                  }
+                  // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                  if(fullRoadAddr !== ''){
+                      fullRoadAddr += extraRoadAddr;
+                  }
+                  $("#addr").val(fullRoadAddr);
+              }
+          }).open();
+      }
+</script>
+</html>
