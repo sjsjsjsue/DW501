@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login 3 화면</title>
+
+<style type="text/css">
+table tr th {
+	border: 1px soild black;
+}
+
+table tr td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h1>Login 3 화면 입니다.</h1>
+	<h3>DW 회원가입</h3>
+	<input id="userId" type="text" placeholder="아이디를 입력해주세요." />
+	<button type="button" onclick="doCheck()">ID 체크</button>
+	<input id="userPw" type="password" placeholder="비밀번호를 입력해주세요." />
+	<input id="userName" type="text" placeholder="이름을 입력해주세요." />
+	<button type="button" onclick="doJoin()">회원가입</button>
+	<hr>
+
+	<h2>Dw 로그인</h2>
+	<input id="i_userId" type="text" placeholder="아이디를 입력해주세요">
+	<input id="i_userPw" type="text" placeholder="비밀번호를 입력하세요">
+	<button type="button" onclick="doLogin()">로그인</button>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+	var isCheck = false;
+// 아이디 중복 체크 : 이미 가입된 아이디 찾기
+	function doCheck(){
+		var id = $("#userId").val();
+		
+		$.ajax({
+			url : '/api/v1/users/'+id,
+			type : 'GET',
+			//contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			// data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response) {
+				// true 면 이미 가입한 아이디가 존재
+				if(response){
+					alert("이미 가입된 아이디입니다.");
+					return false;
+				}else{
+					alert("사용가능한 아이디입니다.");
+					return false;
+				}
+			}
+
+		});
+		
+	}
+	function doJoin() {
+		// 자바스크립트를 이용해서 빈칸 체크하기
+		var userId = $("#userId").val();
+		var userName = $("#userName").val();
+		var userPw = $("#userPw").val();
+
+		if (userId == "") {
+			alert("아이디를 입력해주세요.");
+			$("#userId").focus();
+			return false;
+		}
+		if (userPw == "") {
+			alert("비밀번호를 입력해주세요.");
+			$("#userPw").focus();
+			return false;
+		}
+		if (userName == "") {
+			alert("귀하의 이름을 입력해주세요.");
+			$("#userName").focus();
+			return false;
+		}
+
+		var jsonData = {
+			"id" : userId,
+			"pw" : userPw,
+			"name" : userName
+		// vo의 변수이름 : js 의 변수이름
+		};
+
+		$.ajax({
+			url : '/api/v1/users',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response) {
+				console.log(response);
+				alert("회원가입 완료");
+				location.reload(); // 새로고침
+			}
+
+		});
+	}
+
+	function doLogin() {
+		var id = $("#i_userId").val();
+		var pw = $("#i_userPw").val();
+
+		var jsonData = {
+			"id" : id,
+			"pw" : pw
+		// vo의 변수이름 : js 의 변수이름
+		};
+
+		$.ajax({
+			url : '/api/v1/login',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response) {
+				console.log(response);
+				if (response >= 1) {
+					alert("로그인성공")
+					//페이지 이동 로직 구현
+					location.href = "/users";
+				} else {
+					alert("아이디 혹은 비밀번호가 틀렸습니다.")
+				}
+			}
+
+		});
+
+	}
+	
+
+	
+</script>
+</html>

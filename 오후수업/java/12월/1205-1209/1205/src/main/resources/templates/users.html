@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Users</title>
+
+<style type="text/css">
+table tr th {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+ <h2>사용자 페이지 입니다.</h2>
+ <hr>
+ 
+ <h3>유저 수정</h3>
+ <input id="u_id" type="text" placeholder="아이디를 입력해주세요"/>
+ <input id="u_pw" type="password" placeholder="비밀번호를 입력해주세요"/>
+ <input id="u_name" type="text" placeholder="이름을 입력해주세요"/>
+ <button type="button" onclick="doUpdate()">유저 수정</button>
+   <hr>
+    <h3>유저 삭제</h3>
+ <input id="d_id" type="text" placeholder="아이디를 입력해주세요"/>
+ <input id="d_pw" type="password" placeholder="비밀번호를 입력해주세요"/>
+ <input id="d_name" type="text" placeholder="이름을 입력해주세요"/>
+ <button type="button" onclick="doDelete()">유저 수정</button>
+   <hr>
+   <h2>유저 테이블</h2>
+ <table id="users">
+ 	<tr >
+ 		<th >유저 아이디</th>
+ 		<th >비밀번호</th>
+ 		<th >유저 이름</th>
+ 	</tr>
+ </table>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.1.js"
+integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+	// users 데이터 테이블 보이기
+	
+	
+
+	$.ajax({
+			url:'/api/v1/user/join',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response){
+				console.log(response);
+  				for(var i in response){
+  					console.log("a");
+  					var out = $("<tr> </tr> ")
+  					var id = $("<td>" + response[i].id +"</td>");
+  					var name = $("<td>" + response[i].name +"</td>");
+  					var pw = $("<td>" + response[i].pw +"</td>");
+  					out.append(id);
+  					out.append(name);
+  					out.append(pw);
+  					$("#users").append(out);
+  				}
+			}
+			
+		});
+
+	
+	
+		function doUpdate(){
+		var u_id = $("#u_id").val();
+		var u_pw = $("#u_pw").val();
+		var u_name = $("#u_name").val();
+		
+		var jsonData ={
+  				"id" : u_id,
+  				"pw" : u_pw,
+  				"name" : u_name
+  		};
+		
+		$.ajax({
+			url:'/api/v1/user/join',
+			type : 'PATCH',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				 console.log(response)
+				alert("유저 수정 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});
+		
+		
+	}
+	
+</script>
+
+</html>

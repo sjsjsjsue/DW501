@@ -1,0 +1,1 @@
+INSERT INTO users (id,pw,name) VALUES ('홍길동1','1234',관리자);
