@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>board_list.html </title>
+
+    <style>
+#board_mask{
+  width:100%;
+  height: auto;
+  margin-top: 50px;
+}
+#board_wrap{
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+.btitle{
+  font-size: 25pt;
+  text-align: center;
+  width: 1200px;
+  height: 50px;
+  border-bottom: 2px solid #999;
+}
+.bard_list_wrap{
+  width: 1200px;
+  height: 600px;
+}
+.write a{
+  text-decoration: none;
+  color: black;
+}
+.write{
+  height: 40px;
+  line-height: 40px;
+}
+#board_list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 1200px;
+  height: 560px;
+}
+.bli{
+  display: flex;
+  width: 1200px;
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid rgb(232,232,232);
+  text-align: center;
+}
+/* 첫번째 li 태그 스타일 */
+.board_title{
+  font-weight: 700;
+  font-size: 13pt;
+}
+.board_title div{
+  height: 45px;
+  line-height: 45px;
+}
+/* 게시판 각 항목별 스타일 */
+.num{ width: 10%; }
+.title{ width: 45%;}
+.writer{width: 15%;}
+.writer_date{ width: 15%; }
+.hit{width: 10%;}
+
+</style>
+</head>
+<body>
+	<!--  <input type="text" id="board_no" placeholder="게시판 번호를 입력하세요" >
+	<input type="text" id="title" placeholder="게시판 제목을 입력하세요" >
+	<input type="text" id="writer" placeholder="작성자를 입력하세요" >
+	<button type="button" onclick="insertBoard1()">게시판 추가</button>
+    <hr>-->
+    <div id="board_mask">
+        <div id="board_wrap">
+            <div class="btitle">게시판</div>
+            <div class="bard_list_wrap">
+                <div class="write">
+                  <button type="button" class="bt" onclick ="insertBoard()">게시물 작성</button>
+                </div>
+                <ul id="board_list">
+                    <li class="board_title bli">
+                        <div class="num" id="board_no">게시판 번호</div>
+                        <div class="title" id="title">게시판 제목</div>
+                        <div class="writer" id="writer">작성자</div>
+                        <div class="writer_date" id="creat_at">작성날짜</div>
+                        <div class="hit" id="board_count">조회수</div>
+                    </li>
+                    <li id=data>
+                </ul>
+            </div>
+        
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+callApi();
+function callApi() {
+	$.ajax({
+		url : '/api/v1/board',
+		type : 'GET',
+		dataType : 'json',
+		success : function(response) {
+			var html = '';
+			for (var i = 0; i < response.length; i++) {
+				html +='<tr><td>'+response[i].board_no+'</td><td>'
+						+ response[i].title+'</td><td>'+response[i].writer
+						+'</td><td>'+response[i].creat_at+'</td><td>'
+					
+						+response[i].board_count+'</td></tr>';
+		
+			}
+			$('#data').append(html);
+		}
+	});
+}
+
+function insertBoard(){
+	var board_no = $("#board_no").val();
+	var title = $("#title").val();
+	var writer = $("#writer").val();
+	var creat_at = $("#creat_at").val();
+	var board_count = $("#board_count").val();
+	
+	var jsonData ={
+				"board_no" : board_no,
+				"title" : title,
+				"writer" : writer,
+				"creat_at" : creat_at,
+				"board_count" : board_count
+		};
+	$.ajax({
+		url:'/api/v1/board/join',
+		type : 'POST',
+		contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+		data : JSON.stringify(jsonData),
+		dataType : 'json',
+		success : function(response){
+			console.log(response)
+			alert("게시판 추가 완료");
+			location.reload(); // 새로고침
+		}
+		
+	});
+}
+</script>
+	
+	
+</html>

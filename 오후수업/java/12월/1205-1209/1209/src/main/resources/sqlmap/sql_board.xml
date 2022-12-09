@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dw.emp.mapper.BoardMapper">
+
+	
+	<select id="selectBoard" resultType="com.dw.emp.vo.BoardVO">
+		SELECT board_no,title ,writer,creat_at,board_count
+		FROM board
+	</select>
+	
+	<insert id="insertBoard">
+		INSERT INTO board (board_no,title,writer,creat_at,board_count)
+		VALUES (#{board_no},#{title},#{writer},#{creat_at},#{board_count})
+	</insert>
+</mapper>
