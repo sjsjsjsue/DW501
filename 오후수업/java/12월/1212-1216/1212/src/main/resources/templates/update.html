@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css" />
+<title>게시판 만들기</title>
+</head>
+<body>
+	<div class="container">
+		<div class="section-input">
+			<div class="card-header">
+				<h6>게시물 보기</h6>
+			</div>
+			<div class="input-wrapper">
+				<!-- 게시판 번호를 hidden으로! -->
+				<input id="boardNo" type="hidden" th:value="${boardNo}">
+				<input type="text" id="title" placeholder="제목 입력..." /> 
+				<input type="text" id="writer" placeholder="작성자 입력..." />
+				<textarea id="content" name="content" rows="40"></textarea>
+				<button onclick="doUpadate()">수정하기</button>
+				<button onclick="doDelete()">삭제하기</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+	
+	getBoard();
+	var editor = CKEDITOR.replace('content',{});
+	
+	function getBoard(){
+		var boardNo = $("#boardNo").val(); // hidden 으로 받아온 값
+		$.ajax({
+			url : '/api/v1/board/'+boardNo,
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				$("#title").val(response.title);
+				$("#writer").val(response.writer);
+				editor.setData(response.contents);
+			}
+		});
+	}
+	
+	function doDelete(){
+		var boardNo = $("#boardNo").val();
+		
+		$.ajax({
+			url:'/api/v1/board/'+boardNo,
+			type : 'DELETE',
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("삭제 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});
+	}
+	function doUpadate(){
+		// var boardNo = $("#boardNo").val();
+		var title = $("#title").val();
+		var writer = $("#writer").val();
+		var content = $("#content").val();
+		
+		var jsonData = {
+				//"boardNo" : board_no,
+				"title" : title,
+				"writer" : writer,
+				"contents" : content
+		}
+		$.ajax({
+			url:'/api/v1/boardupdate',
+			type : 'PATCH',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("수정 완료");
+				
+			}
+			
+		});
+	}
+
+</script>
+</html>

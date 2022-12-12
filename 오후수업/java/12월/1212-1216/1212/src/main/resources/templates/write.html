@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css" />
+<title>게시판 만들기</title>
+</head>
+<body>
+	<div class="container">
+		<div class="section-input">
+			<div class="card-header">
+				<h6>게시물 작성</h6>
+			</div>
+			<div class="input-wrapper">
+				<input type="text" id="title" placeholder="제목 입력..." /> 
+				<input type="text" id="writer" placeholder="작성자 입력..." />
+				<textarea id="content" name="content" rows="40"></textarea>
+				<button onclick="doWrite()">작성완료</button>
+				<button onclick="goBack()">뒤로가기</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+	var editor = CKEDITOR.replace('content',{});
+	// 작성완료 함수
+	function doWrite(){
+		var title = $("#title").val();
+		var writer = $("#writer").val();
+		var content = editor.getData();
+		
+		var jsonData = {
+				"title" : title,
+				"writer" : writer,
+				"contents" : content
+		}
+
+		$.ajax({
+			url:'/api/v1/boardcall',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				console.log(response)
+				if(response>0){
+					alert("게시물 작성 완료")
+					// 작성한 게시글 리셋
+					// $("#title").val('');
+					// $("#writer").val('');
+					// editor.setData('');
+					
+					location.href ='/board';
+				}
+			}
+			
+		});
+	}
+	// 뒤로가기 함수
+	function goBack(){
+		location.href = '/board'
+	}
+</script>
+</html>
