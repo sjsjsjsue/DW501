@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사원 목록 페이지</title>
+</head>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	.container {
+		margin: 50 auto;
+	}
+	
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 1000px;
+	}
+	
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+	tr:hover{
+		cursor: pointer;
+	}
+</style>
+<body>
+	<!--멤버 목록 구현하기 -->
+	<h3>멤버 목록</h3>
+	<div class="container">
+		<table>
+			<tr>
+				<th id="id">id</th>
+				<th id="age">age</th>
+				<th id="name">name</th>
+			</tr>
+			<tbody id="data">
+			</tbody>
+		</table>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+	callApi();
+	
+	function callApi() {
+		$.ajax({
+			url : '/api/v1/member',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					html +='<tr><td>'+response[i].id+'</td><td>'
+							+ response[i].age+'</td><td>'+response[i].name
+							+'</td></tr>';
+				}
+				$('#data').append(html);
+			}
+		});
+	}
+	
+	
+
+	
+	
+	
+	
+</script>
+</html>
