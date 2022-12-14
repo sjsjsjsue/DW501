@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사원 목록 페이지</title>
+</head>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	.container {
+		margin: 50 auto;
+	}
+	
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 1000px;
+	}
+	
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+	tr:hover{
+		cursor: pointer;
+	}
+</style>
+<body>
+	<!--멤버 목록 구현하기 -->
+	<h3>멤버 정보</h3>
+	<input id="info_id" type="text" disabled="disabled" placeholder="아이디">
+	<input id="info_age" type="text" disabled="disabled" placeholder="나이">
+	<input id="info_name" type="text" disabled="disabled" placeholder="이름">
+	
+	<h3>멤버 추가</h3>
+	<input id="a_id" type="text" placeholder="아이디를 입력해주세요.">
+	<input id="a_age" type="text" placeholder="나이를 입력해주세요.">
+	<input id="a_name" type="text" placeholder="이름을 입력해주세요.">
+	<button type="button" onclick="joinMember()">멤버 추가</button>
+	
+	<h3>멤버 수정</h3>
+	<input type="text" id="u_id" placeholder="아이디를 입력해주세요.">
+	<input type="text" id="u_age" placeholder="나이를 입력해주세요.">
+	<input type="text" id="u_name" placeholder="이름을 입력해주세요.">
+	<button type="button" onclick="updateMember()">멤버 수정</button>
+	
+	<h3>멤버 삭제</h3>
+	<input type="text" id="d_id" placeholder="아이디를 입력해주세요">
+	<button type="button" onclick="deleteMember()">멤버 삭제</button>
+	
+	
+	<h3>멤버 목록</h3>
+	<div class="container">
+		<table>
+			<tr>
+				<th id="id">id</th>
+				<th id="age">age</th>
+				<th id="name">name</th>
+				<th id="dname">dname</th>
+			</tr>
+			<tbody id="data">
+			</tbody>
+		</table>
+	</div>
+	
+	<h3>부서 정보</h3>
+	<input type="text" id="info_deptno" disabled="disabled" placeholder="부서 번호">
+	<input type="text" id="info_dname" disabled="disabled" placeholder="부서 이름">
+	
+	<h3>부서 추가</h3>
+	<input type="text" id="add_deptno" placeholder="부서번호를 입력하세요.">
+	<input type="text" id="add_dname" placeholder="부서이름을 입력하세요.">
+	<button type="button" onclick="add_dept()">부서 추가</button>
+	
+	<h3>부서 수정</h3>
+	<input type="text" id="u_deptno" placeholder="부서번호를 입력하세요."/>
+	<input type="text" id="u_dname" placeholder="부서이름을 입력하세요."/>
+	<button type="button" onclick="updateDept()">부서 수정</button>
+	
+	<h3>부서 삭제</h3>
+	<input type="text" id="d_deptno" placeholder="부서번호를 입력하세요"/>
+	<button type="button" onclick="deleteDept()">부서 삭제</button>
+	
+	<h3>부서 목록</h3>
+	<div class="container">
+		<table>
+			<tr>
+				<th>dept_id</th>
+				<th>dname</th>
+			</tr>
+			<tbody id="data2"></tbody>
+		</table>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+	callApi();
+	// 멤버 리스트 나오게 하기
+	function callApi() {
+		$.ajax({
+			url : '/api/v1/member',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					// console.log(response);
+					html +='<tr onclick=getMember('+response[i].id+')><td>'+response[i].id+'</td><td>'
+							+ response[i].age+'</td><td>'+response[i].name+'</td><td>'+response[i].dept.dname
+							+'</td></tr>';
+				}
+				$('#data').append(html);
+			}
+		});
+		// dept 리스트 가져오기
+		$.ajax({
+			url : '/api/v1/dept',
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				var html = '';
+				for (var i = 0; i < response.length; i++) {
+					// console.log(response);
+					html +='<tr onclick=getDept('+response[i].id+')><td>'+response[i].id+'</td><td>'
+							+response[i].dname
+							+'</td></tr>';
+				}
+				$('#data2').append(html);
+			}
+		});
+	}
+	// 부서 클릭했을 때 input 창에 나오게 하기
+	function getDept(id){
+		$.ajax({
+			url : '/api/v1/dept/'+id,
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				$('#info_deptno').val(response.id);
+				$('#info_dname').val(response.dname);
+			}
+		});
+	}
+	
+	// 부서 상세 조회
+	function getMember(id){
+		
+		$.ajax({
+			url : '/api/v1/dept/'+id,
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				$('#info_id').val(response.id);
+				$('#info_age').val(response.age);
+				$('#info_name').val(response.name);
+			}
+		});
+	}
+	
+	// 멤버 추가
+
+	function joinMember(){
+		var id = $("#a_id").val();
+		var age = $("#a_age").val();
+		var name = $("#a_name").val();
+		
+		var jsonData = {
+				"id" : id,
+				"age" : age,
+				"name" : name
+		}
+		$.ajax({
+			url:'/api/v1/member',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("추가 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});
+	}
+	// 부서 추가
+	function add_dept(){
+		var id = $("#add_deptno").val();
+		var dname = $("#add_dname").val();
+		
+		var jsonData = {
+				"id" : id,
+				"dname" : dname
+		}
+		$.ajax({
+			url:'/api/v1/dept',
+			type : 'POST',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("추가 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});
+	}
+	
+	// 멤버 수정
+	
+	function updateMember(){
+		var id = $("#u_id").val();
+		var age = $("#u_age").val();
+		var name = $("#u_name").val();
+		
+		var jsonData = {
+				"id" : id,
+				"age" :age,
+				"name" : name
+		}
+		
+		$.ajax({
+			url:'/api/v1/memeber',
+			type : 'PATCH',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("수정 완료");
+				location.reload(); // 새로고침
+			}	
+		});
+	}
+	
+	// 부서 수정
+	function updateDept(){
+		var id = $("#u_deptno").val();
+		var dname = $("#u_dname").val();
+		
+		var jsonData = {
+				"id" : id,
+				"dname" : dname
+		}
+		$.ajax({
+			url:'/api/v1/dept',
+			type : 'PATCH',
+			contentType : 'application/json', // 서버에 json 타입으로 보낼 예정(요청)
+			data : JSON.stringify(jsonData),
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("수정 완료");
+				location.reload(); // 새로고침
+			}	
+		});
+		
+	}
+	
+	// 멤버 삭제
+	function deleteMember(){
+		var id = $("#d_id").val();
+		
+		$.ajax({
+			url:'/api/v1/member/'+id,
+			type : 'DELETE',
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("사원 삭제 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});	
+	}
+	function deleteDept(){
+		var id = $("#d_deptno").val();
+		
+		$.ajax({
+			url:'/api/v1/dept/'+id,
+			type : 'DELETE',
+			dataType : 'json',
+			success : function(response){
+				// console.log(response)
+				alert("삭제 완료");
+				location.reload(); // 새로고침
+			}
+			
+		});	
+	}
+	
+	
+</script>
+</html>
