@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD! 😛</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 학생 추가 팝업 -->
+      <div class="write-popup">
+        <div class="editor">
+          <div class="input-box">
+            <label>학생 이름 : </label>
+            <input type="text" placeholder=" 이름을 입력하세요..." />
+          </div>
+          <div class="input-box">
+            <label>학생 나이 : </label>
+            <input type="number" placeholder=" 나이를 입력하세요..." />
+          </div>
+          <div class="input-box">
+            <label>연락처 : </label>
+            <input type="number" placeholder=" - 를 제거하고 입력하세요." />
+          </div>
+          <div class="input-box">
+            <label>주소 </label>
+            <input type="text" placeholder=" 주소를 입력하세요..." />
+            <button class="postBtn" onclick="getPostCode()">우편번호 찾기</button>
+          </div>
+          <div class="btn-area">
+            <a href="#" class="btn-cancel" onclick="">등록 취소</a>
+            <a href="#" class="btn-success" onclick="">학생 등록</a>
+          </div>
+        </div>
+      </div>
+      <!-- 학생정보 수정 -->
+      <div class="update-popup">
+        <div class="editor">
+          <div class="close">
+            <a href="#" class="btn-close">닫기</a>
+          </div>
+          <div class="input-box">
+            <label>학생 번호 : </label>
+            <input type="number" value="7899" readonly />
+          </div>
+          <div class="input-box">
+            <label>학생 이름 : </label>
+            <input type="text" value="현상원" />
+          </div>
+          <div class="input-box">
+            <label>학생 나이 : </label>
+            <input type="number" value="88" placeholder=" 나이를 입력하세요..." />
+          </div>
+          <div class="input-box">
+            <label>연락처 : </label>
+            <input type="number" value="010-4097-****" placeholder=" - 를 제거하고 입력하세요." />
+          </div>
+          <div class="input-box">
+            <label>주소 </label>
+            <input type="text" value="대전 선화동 방산빌딩 지하 53층" placeholder=" 주소를 입력하세요..." />
+            <button class="postBtn" onclick="getPostCode()">우편번호 찾기</button>
+          </div>
+          <div class="btn-area">
+            <a href="#" class="btn-update" onclick="">수정</a>
+            <a href="#" class="btn-delete" onclick="">삭제</a>
+          </div>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+              <span class="title">DW ADMIN</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+              <span class="title">학생 목록</span>
+            </a>
+          </li>
+          <li>
+            <a href="./dept.html">
+              <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+              <span class="title">과정 목록</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+              <span class="title">Sign Out</span>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <!-- main -->
+    <div class="main">
+      <!-- cards -->
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div id="studentsCnt" class="numbers">2</div>
+            <div class="cardName">학생 수</div>
+          </div>
+          <div class="iconBx">
+            <ion-icon name="school-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div id="boardCnt" class="numbers">27.6</div>
+            <div class="cardName">학생 평균나이</div>
+          </div>
+          <div class="iconBx">
+            <ion-icon name="book-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <!-- table -->
+      <div class="details">
+        <div class="recentOrders">
+          <div class="cardHeader">
+            <h2>학생 목록</h2>
+            <!-- <a href="#" class="btn" style="background-color: #19ce60" onclick="downloadExcelFile()">엑셀 다운로드</a> -->
+            <a href="#" id="empAdd" class="btn">학생 추가</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>학생 번호</th>
+                <th>학생 이름</th>
+                <th>학생 나이</th>
+                <th>학생 연락처</th>
+                <th>주소</th>
+                <th>과정 명</th>
+              </tr>
+            </thead>
+            <tbody id="data">
+              <tr onclick="getData()">
+                <td>6500</td>
+                <td>현상원</td>
+                <td>55</td>
+                <td>010-4097-****</td>
+                <td>대전 충정로 136</td>
+                <td>IoT 임베디드 과정</td>
+              </tr>
+              <tr onclick="getData()">
+                <td>7000</td>
+                <td>예진쌤</td>
+                <td>22</td>
+                <td>010-3371-****</td>
+                <td>서울 강남구 테헤란로 521</td>
+                <td>React 과정</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 페이징 처리하는 HTML -->
+          <div class="pagination">
+            <a>Previous</a>
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+            <a>5</a>
+            <a>Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Icon CDN -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Jquery CDN -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <!-- 도로명주소 CDN -->
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    $('#empAdd').click(function () {
+      $('.write-popup').css('display', 'block');
+    });
+    $('.btn-cancel').click(function () {
+      $('.write-popup').css('display', 'none');
+    });
+    $('.btn-close').click(function () {
+      $('.update-popup').css('display', 'none');
+    });
+    let list = document.querySelectorAll('.navigation li');
+    function activeLink() {
+      list.forEach((item) => {
+        item.classList.remove('hovered');
+      });
+      this.classList.add('hovered');
+    }
+    list.forEach((item) => {
+      item.addEventListener('mouseover', activeLink);
+    });
+    function getData() {
+      $('.update-popup').css('display', 'block');
+    }
+
+    //도로명 주소 함수
+    function getPostCode() {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+          // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+          var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+          var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+          // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+          // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+          if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+            extraRoadAddr += data.bname;
+          }
+          // 건물명이 있고, 공동주택일 경우 추가한다.
+          if (data.buildingName !== '' && data.apartment === 'Y') {
+            extraRoadAddr += extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName;
+          }
+          // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+          if (extraRoadAddr !== '') {
+            extraRoadAddr = ' (' + extraRoadAddr + ')';
+          }
+          // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+          if (fullRoadAddr !== '') {
+            fullRoadAddr += extraRoadAddr;
+          }
+        },
+      }).open();
+    }
+  </script>
+</html>
