@@ -16,6 +16,7 @@
 ### git 설정
  - git config --global user.name '사용자 이름'
  - git config --global user.email '깃허브 가입한 이메일' 
+ - git config --global pull.rebase true : 로컬 저장소에 변경 내용이 있다면 커밋부터 하고 pull 받을 수 있게 설정하는 
 
 ### git 명령어
  - init : 저장소 생성.
@@ -24,3 +25,4 @@
  - push : 최종 github 에 업로드.
  - clone : 다운로드.
  - pull : 변경된 내용 다운로드.
+ 
